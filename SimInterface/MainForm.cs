@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using MipPanels_PMDG;
 
 // Add these two statements to all SimConnect clients
 using Microsoft.FlightSimulator.SimConnect;
@@ -17,12 +19,15 @@ namespace SimInterface
 {
     public partial class MainForm : Form
     {
+        private Thread _updateThread;
+        
         // User-defined win32 event
         const int WM_USER_SIMCONNECT = 0x0402;
 
         // SimConnect object
         SimConnect simconnect = null;
-
+        SDK.PMDG_NGX_Data pmdgData;
+        
         enum EVENTS
         {
             AP_MASTER,
@@ -43,6 +48,18 @@ namespace SimInterface
             REQUEST_MCP,
         };
 
+        enum DATA_REQUEST_ID
+        {
+            DATA_REQUEST,
+            CONTROL_REQUEST,
+            AIR_PATH_REQUEST
+        };
+
+        enum REQUESTS
+        {
+            CLIENT_REQUEST
+        }
+
         struct MCP
         {
             public bool ap_master;
@@ -53,9 +70,46 @@ namespace SimInterface
             GROUP0,
         }
 
+        enum CLIENT_DATA_IDS
+        {
+            PMDG_NGX_DATA_ID = 0x4E477831,
+            PMDG_NGX_DATA_DEFINITION = 0x4E477832,
+            PMDG_NGX_CONTROL_ID = 0x4E477833,
+            PMDG_NGX_CONTROL_DEFINITION = 0x4E477834,
+        };
+
         public MainForm()
         {
+            // just to make sure
+            int expected = 680;
+            int managedSize = Marshal.SizeOf(typeof(SDK.PMDG_NGX_Data));
+            Debug.Assert(managedSize == expected, string.Format("Unexpected pmdg managed struct size {0}!={1}", managedSize, expected));
+            int nativeSize = NativeMethod.GetPMDGDataStructureLength();
+            Debug.Assert(nativeSize == expected, String.Format("Unexpected pmdg native struct size {0}!={1}", nativeSize, expected));
+
             InitializeComponent();
+
+            // start the update thread
+            _updateThread = new Thread(ReadData) { IsBackground = true, Priority = ThreadPriority.BelowNormal };
+            _updateThread.Start();
+        }
+
+        void ReadData()
+        {
+            while (true)
+            {
+                UpdatePMDG();
+                Thread.Sleep(300);
+            }
+        }
+
+        void UpdatePMDG()
+        {
+            this.Invoke((MethodInvoker)delegate {
+                pmdgData = NativeMethod.GetPMDGData();
+
+                mcp_cmd_a.Checked = (pmdgData.MCP_annunCMD_A == 1 ? true : false);
+            });
         }
 
         //Handle incoming messages
@@ -82,6 +136,10 @@ namespace SimInterface
                 simconnect = null;
                 Debug.Write("Disconnected");
             }
+            if (_updateThread != null)
+            {
+                _updateThread.Abort();
+            }
         }
 
         // Set up all the SimConnect related event handlers
@@ -94,7 +152,7 @@ namespace SimInterface
                 simconnect.OnRecvQuit += new SimConnect.RecvQuitEventHandler(simconnect_OnRecvQuit);
                 simconnect.OnRecvException += new SimConnect.RecvExceptionEventHandler(simconnect_OnRecvException);
                 simconnect.OnRecvEvent += new SimConnect.RecvEventEventHandler(simconnect_OnRecvEvent);
-                
+                                
                 //Subscribe to events. Used to trigger data requests.
                 simconnect.MapClientEventToSimEvent(EVENTS.AP_MASTER, "AP_MASTER");
                 simconnect.AddClientEventToNotificationGroup(NOTIFICATION_GROUPS.GROUP0, EVENTS.AP_MASTER, false);
@@ -151,9 +209,7 @@ namespace SimInterface
                 case DATA_REQUESTS.REQUEST_MCP:
                     MCP mcp = (MCP)data.dwData[0];
 
-                    chk_mcp_cmd_a.CheckedChanged -= chk_mcp_cmd_a_CheckedChanged;
-                    chk_mcp_cmd_a.Checked = mcp.ap_master;
-                    chk_mcp_cmd_a.CheckedChanged += chk_mcp_cmd_a_CheckedChanged;
+                    mcp_cmd_a.Checked = mcp.ap_master;
                     break;
                 default:
                     Debug.WriteLine("Unknown request ID: " + data.dwRequestID);
@@ -187,9 +243,215 @@ namespace SimInterface
             }
         }
 
-        private void chk_mcp_cmd_a_CheckedChanged(object sender, EventArgs e)
+        private void toggleManagedPMDGControl(SDK.PMDGEvents pmdgEvent, RadioButton indicator)
         {
-            simconnect.TransmitClientEvent(SimConnect.SIMCONNECT_OBJECT_ID_USER, EVENTS.AP_MASTER, 1, NOTIFICATION_GROUPS.GROUP0, SIMCONNECT_EVENT_FLAG.DEFAULT);
+            NativeMethod.RaisePMDGEvent(pmdgEvent, (indicator.Checked ? 0 : 1));
+            indicator.Checked = !indicator.Checked;
+        }
+
+        private void setManagedPMDGControl(SDK.PMDGEvents pmdgEvent, int data)
+        {
+            NativeMethod.RaisePMDGEvent(pmdgEvent, data);
+        }
+
+        private void togglePMDGControl(SDK.PMDGEvents pmdgEvent, int data, RadioButton indicator)
+        {
+            data = ~data;
+            NativeMethod.RaisePMDGEvent(SDK.PMDGEvents.EVT_MCP_CMD_A_SWITCH, data);
+            indicator.Checked = (data == 1 ? true : false);
+        }
+        
+        private void btn_mcp_cmd_a_Click(object sender, EventArgs e)
+        {
+            //simconnect.TransmitClientEvent(SimConnect.SIMCONNECT_OBJECT_ID_USER, EVENTS.AP_MASTER, 1, NOTIFICATION_GROUPS.GROUP0, SIMCONNECT_EVENT_FLAG.DEFAULT); //Native FSX. Doesn't work with PMDG.
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_CMD_A_SWITCH, pmdgData.MCP_annunCMD_A, mcp_cmd_a);
+        }
+
+        private void btn_efis_wxr_Click(object sender, EventArgs e)
+        {
+            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_WXR, efis_wxr);
+        }
+
+        private void btn_efis_sta_Click(object sender, EventArgs e)
+        {
+            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_STA, efis_sta);
+        }
+
+        private void btn_efis_wpt_Click(object sender, EventArgs e)
+        {
+            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_WPT, efis_wpt);
+        }
+
+        private void btn_efis_arpt_Click(object sender, EventArgs e)
+        {
+            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_ARPT, efis_arpt);
+        }
+
+        private void btn_efis_data_Click(object sender, EventArgs e)
+        {
+            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_DATA, efis_data);
+        }
+
+        private void btn_efis_pos_Click(object sender, EventArgs e)
+        {
+            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_POS, efis_pos);
+        }
+
+        private void btn_efis_terr_Click(object sender, EventArgs e)
+        {
+            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_TERR, efis_terr);
+        }
+
+        private void efis_mins_radio_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MINIMUMS_RADIO_BARO, 0);
+        }
+
+        private void efis_mins_baro_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MINIMUMS_RADIO_BARO, 1);
+        }
+
+        private void efis_mins_reset_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MINIMUMS_RST, int.MaxValue);
+        }
+
+        private void efis_mins_dec_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MINIMUMS, 10000);
+        }
+
+        private void efis_mins_inc_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MINIMUMS, int.MinValue);
+        }
+
+        private void btn_efis_sel_l_vor_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_L, 0);
+        }
+
+        private void btn_efis_sel_l_off_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_L, 1);
+        }
+
+        private void btn_efis_sel_l_adf_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_L, 2);
+        }
+
+        private void btn_efis_sel_r_vor_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_R, 0);
+        }
+
+        private void btn_efis_sel_r_off_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_R, 1);
+        }
+
+        private void btn_efis_sel_r_adf_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_R, 2);
+        }
+
+        private void btn_efis_mode_ctr_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int rnd = random.Next(int.MaxValue);
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MODE_CTR, rnd);
+        }
+
+        private void btn_efis_mode_app_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MODE, 0);
+        }
+
+        private void btn_efis_mode_vor_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MODE, 1);
+        }
+
+        private void btn_efis_mode_map_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MODE, 2);
+        }
+
+        private void btn_efis_mode_pln_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MODE, 3);
+        }
+
+        private void btn_efis_tfc_Click(object sender, EventArgs e)
+        {
+            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_RANGE_TFC, efis_tfc);
+        }
+
+        private void btn_efis_range_5_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_RANGE, 0);
+        }
+
+        private void btn_efis_range_10_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_RANGE, 1);
+        }
+
+        private void btn_efis_range_20_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_RANGE, 2);
+        }
+
+        private void btn_efis_range_40_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_RANGE, 3);
+        }
+
+        private void btn_efis_range_80_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_RANGE, 4);
+        }
+
+        private void btn_efis_range_160_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_RANGE, 5);
+        }
+
+        private void btn_efis_range_320_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_RANGE, 6);
+        }
+
+        private void btn_efis_range_640_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_RANGE, 7);
+        }
+
+        private void btn_efis_baro_in_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_BARO_IN_HPA, 0);
+        }
+
+        private void btn_efis_baro_hpa_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_BARO_IN_HPA, 1);
+        }
+
+        private void btn_efis_baro_std_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_BARO_STD, int.MaxValue);
+        }
+
+        private void btn_efis_baro_dec_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_BARO, 10000);
+        }
+
+        private void btn_efis_baro_inc_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_BARO, int.MinValue);
         }
     }
 }
