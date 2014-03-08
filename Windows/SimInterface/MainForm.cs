@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using MipPanels_PMDG;
+using UsbHid;
+using UsbHid.USB.Classes.Messaging;
 
 // Add these two statements to all SimConnect clients
 using Microsoft.FlightSimulator.SimConnect;
@@ -27,6 +29,8 @@ namespace SimInterface
         // SimConnect object
         SimConnect simconnect = null;
         SDK.PMDG_NGX_Data pmdgData;
+
+        public UsbHidDevice efisDevice;
         
         enum EVENTS
         {
@@ -137,7 +141,18 @@ namespace SimInterface
                 mcp_althld.Checked = (pmdgData.MCP_annunALT_HOLD == 1 ? true : false);
                 mcp_vs_on.Checked = (pmdgData.MCP_annunVS == 1 ? true : false);
                 mcp_disengage.Checked = (pmdgData.MCP_DisengageBar == 1 ? true : false);
+
+                CommandMessage message = new CommandMessage(1);
+                message.Parameters = GetBytes((mcp_lvlchg.Checked ? "LVL_CGH_ON" : "LVL_CGH_OFF"));
+                efisDevice.SendMessage(message);
             });
+        }
+
+        static byte[] GetBytes(string str)
+        {
+            byte[] bytes = new byte[str.Length * sizeof(char)];
+            System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+            return bytes;
         }
 
         //Handle incoming messages
@@ -269,6 +284,58 @@ namespace SimInterface
                 Debug.WriteLine("Error - try again");
                 closeConnection();
             }
+
+            efisDevice = new UsbHidDevice(0x16C0, 0x0486);
+            efisDevice.OnConnected += deviceOnConnected;
+            efisDevice.OnDisConnected += deviceOnDisConnected;
+            efisDevice.DataReceived += deviceDataReceived;
+            efisDevice.Connect();
+        }
+
+        private void deviceOnDisConnected()
+        {
+            Debug.WriteLine("USB disconnected");
+        }
+
+        private void deviceOnConnected()
+        {
+            Debug.WriteLine("USB connected");
+        }
+
+        private void deviceDataReceived(byte[] data)
+        {
+            byte[] chopped = new byte[64];
+            Array.Copy(data, 1, chopped, 0, 64);
+            String command = System.Text.Encoding.ASCII.GetString(chopped);
+            command = command.Replace("\0", "");
+            Debug.WriteLine(command);
+
+            handleCommand(command);
+        }
+
+        private void handleCommand(String command)
+        {
+            this.Invoke((MethodInvoker)delegate
+            {
+                switch (command)
+                {
+                    case "LVL_CHG":
+                        togglePMDGControl(SDK.PMDGEvents.EVT_MCP_LVL_CHG_SWITCH, pmdgData.MCP_annunLVL_CHG, mcp_lvlchg);
+                        break;
+                    case "HDG_DEC":
+                        setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_HEADING_SELECTOR, 10000);
+                        break;
+                    case "HDG_INC":
+                        setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_HEADING_SELECTOR, int.MinValue);
+                        break;
+                    case "ALT_DEC":
+                        setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_ALTITUDE_SELECTOR, 10000);
+                        break;
+                    case "ALT_INC":
+                        setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_ALTITUDE_SELECTOR, int.MinValue);
+                        break;
+                }
+            });
         }
 
         private void toggleManagedPMDGControl(SDK.PMDGEvents pmdgEvent, CheckBox indicator)

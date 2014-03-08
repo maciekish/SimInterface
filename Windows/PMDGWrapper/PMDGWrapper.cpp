@@ -125,7 +125,7 @@ void CALLBACK MyDispatchProc(SIMCONNECT_RECV* pData, DWORD cbData, void *pContex
 			{
 			case DATA_REQUEST:
 				{
-					if (iPmdgUpdated%10 == 0)
+					if (iPmdgUpdated%100 == 0)
 						printf("Receive and process the NGX data block count=%d\n", iPmdgUpdated);
 					PMDG_NGX_Data *pS = (PMDG_NGX_Data*)&pObjData->dwData;
 					sPmdgData = *pS;
