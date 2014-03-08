@@ -78,13 +78,67 @@
             this.label2 = new System.Windows.Forms.Label();
             this.efis_ctr = new System.Windows.Forms.RadioButton();
             this.efis_tfc = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.mcp_crs_l = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btn_mcp_crs_l_dec = new System.Windows.Forms.Button();
+            this.btn_mcp_crs_r_inc = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.mcp_at = new System.Windows.Forms.RadioButton();
+            this.btn_mcp_at_off = new System.Windows.Forms.Button();
+            this.btn_mcp_at_on = new System.Windows.Forms.Button();
+            this.btn_mcp_fd_off = new System.Windows.Forms.Button();
+            this.btn_mcp_fd_on = new System.Windows.Forms.Button();
+            this.mcp_fd = new System.Windows.Forms.RadioButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_mcp_spd_dec = new System.Windows.Forms.Button();
+            this.btn_mcp_spd_inc = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.mcp_spd = new System.Windows.Forms.TextBox();
+            this.btn_mcp_spd_co = new System.Windows.Forms.Button();
+            this.btn_mcp_spd_spdintv = new System.Windows.Forms.Button();
+            this.btn_mcp_n1 = new System.Windows.Forms.Button();
+            this.btn_mcp_speed = new System.Windows.Forms.Button();
+            this.btn_mcp_lvlchg = new System.Windows.Forms.Button();
+            this.btn_mcp_heading_dec = new System.Windows.Forms.Button();
+            this.btn_mcp_heading_inc = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.mcp_heading = new System.Windows.Forms.TextBox();
+            this.btn_mcp_vnav = new System.Windows.Forms.Button();
+            this.btn_mcp_lnav = new System.Windows.Forms.Button();
+            this.btn_mcp_vorloc = new System.Windows.Forms.Button();
+            this.btn_mcp_app = new System.Windows.Forms.Button();
+            this.btn_mcp_bank_dec = new System.Windows.Forms.Button();
+            this.btn_mcp_bank_inc = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.mcp_altitude = new System.Windows.Forms.TextBox();
+            this.btn_mcp_althld = new System.Windows.Forms.Button();
+            this.btn_mcp_vs = new System.Windows.Forms.Button();
+            this.btn_mcp_altitude_dec = new System.Windows.Forms.Button();
+            this.btn_mcp_altitude_inc = new System.Windows.Forms.Button();
+            this.btn_mcp_altintv = new System.Windows.Forms.Button();
+            this.btn_mcp_vs_dn = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.mcp_vs = new System.Windows.Forms.TextBox();
+            this.btn_mcp_vs_up = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.mcp_cmd_b = new System.Windows.Forms.RadioButton();
+            this.btn_mcp_cmd_b = new System.Windows.Forms.Button();
+            this.mcp_cws_b = new System.Windows.Forms.RadioButton();
+            this.btn_mcp_cws_b = new System.Windows.Forms.Button();
+            this.mcp_cws_a = new System.Windows.Forms.RadioButton();
+            this.btn_mcp_cws_a = new System.Windows.Forms.Button();
+            this.btn_mcp_disengage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mcp_cmd_a
             // 
             this.mcp_cmd_a.AutoSize = true;
             this.mcp_cmd_a.Enabled = false;
-            this.mcp_cmd_a.Location = new System.Drawing.Point(776, 44);
+            this.mcp_cmd_a.Location = new System.Drawing.Point(935, 74);
             this.mcp_cmd_a.Name = "mcp_cmd_a";
             this.mcp_cmd_a.Size = new System.Drawing.Size(14, 13);
             this.mcp_cmd_a.TabIndex = 15;
@@ -92,11 +146,11 @@
             // 
             // btn_mcp_cmd_a
             // 
-            this.btn_mcp_cmd_a.Location = new System.Drawing.Point(761, 12);
+            this.btn_mcp_cmd_a.Location = new System.Drawing.Point(920, 42);
             this.btn_mcp_cmd_a.Name = "btn_mcp_cmd_a";
             this.btn_mcp_cmd_a.Size = new System.Drawing.Size(45, 45);
             this.btn_mcp_cmd_a.TabIndex = 16;
-            this.btn_mcp_cmd_a.Text = "CMD A";
+            this.btn_mcp_cmd_a.Text = "CMD";
             this.btn_mcp_cmd_a.UseVisualStyleBackColor = true;
             this.btn_mcp_cmd_a.Click += new System.EventHandler(this.btn_mcp_cmd_a_Click);
             // 
@@ -578,11 +632,554 @@
             this.efis_tfc.TabIndex = 66;
             this.efis_tfc.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(483, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 67;
+            // 
+            // mcp_crs_l
+            // 
+            this.mcp_crs_l.Location = new System.Drawing.Point(381, 26);
+            this.mcp_crs_l.Name = "mcp_crs_l";
+            this.mcp_crs_l.Size = new System.Drawing.Size(53, 20);
+            this.mcp_crs_l.TabIndex = 68;
+            this.mcp_crs_l.Text = "000";
+            this.mcp_crs_l.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(382, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.TabIndex = 69;
+            this.label4.Text = "COURSE";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_mcp_crs_l_dec
+            // 
+            this.btn_mcp_crs_l_dec.Location = new System.Drawing.Point(384, 52);
+            this.btn_mcp_crs_l_dec.Name = "btn_mcp_crs_l_dec";
+            this.btn_mcp_crs_l_dec.Size = new System.Drawing.Size(20, 20);
+            this.btn_mcp_crs_l_dec.TabIndex = 71;
+            this.btn_mcp_crs_l_dec.Text = "-";
+            this.btn_mcp_crs_l_dec.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_crs_r_inc
+            // 
+            this.btn_mcp_crs_r_inc.Location = new System.Drawing.Point(410, 52);
+            this.btn_mcp_crs_r_inc.Name = "btn_mcp_crs_r_inc";
+            this.btn_mcp_crs_r_inc.Size = new System.Drawing.Size(20, 20);
+            this.btn_mcp_crs_r_inc.TabIndex = 70;
+            this.btn_mcp_crs_r_inc.Text = "+";
+            this.btn_mcp_crs_r_inc.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(445, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 24);
+            this.label5.TabIndex = 72;
+            this.label5.Text = "A/T\r\nARM";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mcp_at
+            // 
+            this.mcp_at.AutoSize = true;
+            this.mcp_at.Enabled = false;
+            this.mcp_at.Location = new System.Drawing.Point(453, 35);
+            this.mcp_at.Name = "mcp_at";
+            this.mcp_at.Size = new System.Drawing.Size(14, 13);
+            this.mcp_at.TabIndex = 73;
+            this.mcp_at.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_at_off
+            // 
+            this.btn_mcp_at_off.Location = new System.Drawing.Point(439, 73);
+            this.btn_mcp_at_off.Name = "btn_mcp_at_off";
+            this.btn_mcp_at_off.Size = new System.Drawing.Size(40, 20);
+            this.btn_mcp_at_off.TabIndex = 75;
+            this.btn_mcp_at_off.Text = "OFF";
+            this.btn_mcp_at_off.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_at_on
+            // 
+            this.btn_mcp_at_on.Location = new System.Drawing.Point(439, 54);
+            this.btn_mcp_at_on.Name = "btn_mcp_at_on";
+            this.btn_mcp_at_on.Size = new System.Drawing.Size(40, 20);
+            this.btn_mcp_at_on.TabIndex = 74;
+            this.btn_mcp_at_on.Text = "ON";
+            this.btn_mcp_at_on.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_fd_off
+            // 
+            this.btn_mcp_fd_off.Location = new System.Drawing.Point(394, 197);
+            this.btn_mcp_fd_off.Name = "btn_mcp_fd_off";
+            this.btn_mcp_fd_off.Size = new System.Drawing.Size(40, 20);
+            this.btn_mcp_fd_off.TabIndex = 80;
+            this.btn_mcp_fd_off.Text = "OFF";
+            this.btn_mcp_fd_off.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_fd_on
+            // 
+            this.btn_mcp_fd_on.Location = new System.Drawing.Point(394, 178);
+            this.btn_mcp_fd_on.Name = "btn_mcp_fd_on";
+            this.btn_mcp_fd_on.Size = new System.Drawing.Size(40, 20);
+            this.btn_mcp_fd_on.TabIndex = 79;
+            this.btn_mcp_fd_on.Text = "ON";
+            this.btn_mcp_fd_on.UseVisualStyleBackColor = true;
+            // 
+            // mcp_fd
+            // 
+            this.mcp_fd.AutoSize = true;
+            this.mcp_fd.Enabled = false;
+            this.mcp_fd.Location = new System.Drawing.Point(408, 159);
+            this.mcp_fd.Name = "mcp_fd";
+            this.mcp_fd.Size = new System.Drawing.Size(14, 13);
+            this.mcp_fd.TabIndex = 78;
+            this.mcp_fd.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(400, 133);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 24);
+            this.label6.TabIndex = 77;
+            this.label6.Text = "F/D\r\nON";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(436, 97);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 13);
+            this.label7.TabIndex = 76;
+            // 
+            // btn_mcp_spd_dec
+            // 
+            this.btn_mcp_spd_dec.Location = new System.Drawing.Point(498, 74);
+            this.btn_mcp_spd_dec.Name = "btn_mcp_spd_dec";
+            this.btn_mcp_spd_dec.Size = new System.Drawing.Size(20, 20);
+            this.btn_mcp_spd_dec.TabIndex = 84;
+            this.btn_mcp_spd_dec.Text = "-";
+            this.btn_mcp_spd_dec.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_spd_inc
+            // 
+            this.btn_mcp_spd_inc.Location = new System.Drawing.Point(522, 74);
+            this.btn_mcp_spd_inc.Name = "btn_mcp_spd_inc";
+            this.btn_mcp_spd_inc.Size = new System.Drawing.Size(20, 20);
+            this.btn_mcp_spd_inc.TabIndex = 83;
+            this.btn_mcp_spd_inc.Text = "+";
+            this.btn_mcp_spd_inc.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(490, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 13);
+            this.label8.TabIndex = 82;
+            this.label8.Text = "IAS/MACH";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mcp_spd
+            // 
+            this.mcp_spd.Location = new System.Drawing.Point(494, 26);
+            this.mcp_spd.Name = "mcp_spd";
+            this.mcp_spd.Size = new System.Drawing.Size(53, 20);
+            this.mcp_spd.TabIndex = 81;
+            this.mcp_spd.Text = "000";
+            this.mcp_spd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btn_mcp_spd_co
+            // 
+            this.btn_mcp_spd_co.Location = new System.Drawing.Point(485, 52);
+            this.btn_mcp_spd_co.Name = "btn_mcp_spd_co";
+            this.btn_mcp_spd_co.Size = new System.Drawing.Size(35, 20);
+            this.btn_mcp_spd_co.TabIndex = 85;
+            this.btn_mcp_spd_co.Text = "C/O";
+            this.btn_mcp_spd_co.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_spd_spdintv
+            // 
+            this.btn_mcp_spd_spdintv.Location = new System.Drawing.Point(520, 52);
+            this.btn_mcp_spd_spdintv.Name = "btn_mcp_spd_spdintv";
+            this.btn_mcp_spd_spdintv.Size = new System.Drawing.Size(37, 20);
+            this.btn_mcp_spd_spdintv.TabIndex = 86;
+            this.btn_mcp_spd_spdintv.Text = "SPD";
+            this.btn_mcp_spd_spdintv.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_n1
+            // 
+            this.btn_mcp_n1.Location = new System.Drawing.Point(443, 172);
+            this.btn_mcp_n1.Name = "btn_mcp_n1";
+            this.btn_mcp_n1.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_n1.TabIndex = 87;
+            this.btn_mcp_n1.Text = "N1";
+            this.btn_mcp_n1.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_speed
+            // 
+            this.btn_mcp_speed.Location = new System.Drawing.Point(494, 172);
+            this.btn_mcp_speed.Name = "btn_mcp_speed";
+            this.btn_mcp_speed.Size = new System.Drawing.Size(51, 45);
+            this.btn_mcp_speed.TabIndex = 88;
+            this.btn_mcp_speed.Text = "SPEED";
+            this.btn_mcp_speed.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_lvlchg
+            // 
+            this.btn_mcp_lvlchg.Location = new System.Drawing.Point(559, 172);
+            this.btn_mcp_lvlchg.Name = "btn_mcp_lvlchg";
+            this.btn_mcp_lvlchg.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_lvlchg.TabIndex = 89;
+            this.btn_mcp_lvlchg.Text = "LVL\r\nCHG";
+            this.btn_mcp_lvlchg.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_heading_dec
+            // 
+            this.btn_mcp_heading_dec.Location = new System.Drawing.Point(617, 72);
+            this.btn_mcp_heading_dec.Name = "btn_mcp_heading_dec";
+            this.btn_mcp_heading_dec.Size = new System.Drawing.Size(20, 20);
+            this.btn_mcp_heading_dec.TabIndex = 93;
+            this.btn_mcp_heading_dec.Text = "-";
+            this.btn_mcp_heading_dec.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_heading_inc
+            // 
+            this.btn_mcp_heading_inc.Location = new System.Drawing.Point(643, 72);
+            this.btn_mcp_heading_inc.Name = "btn_mcp_heading_inc";
+            this.btn_mcp_heading_inc.Size = new System.Drawing.Size(20, 20);
+            this.btn_mcp_heading_inc.TabIndex = 92;
+            this.btn_mcp_heading_inc.Text = "+";
+            this.btn_mcp_heading_inc.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(609, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(62, 13);
+            this.label9.TabIndex = 91;
+            this.label9.Text = "HEADING";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mcp_heading
+            // 
+            this.mcp_heading.Location = new System.Drawing.Point(613, 26);
+            this.mcp_heading.Name = "mcp_heading";
+            this.mcp_heading.Size = new System.Drawing.Size(53, 20);
+            this.mcp_heading.TabIndex = 90;
+            this.mcp_heading.Text = "000";
+            this.mcp_heading.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btn_mcp_vnav
+            // 
+            this.btn_mcp_vnav.Location = new System.Drawing.Point(559, 9);
+            this.btn_mcp_vnav.Name = "btn_mcp_vnav";
+            this.btn_mcp_vnav.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_vnav.TabIndex = 96;
+            this.btn_mcp_vnav.Text = "VNAV";
+            this.btn_mcp_vnav.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_lnav
+            // 
+            this.btn_mcp_lnav.Location = new System.Drawing.Point(678, 9);
+            this.btn_mcp_lnav.Name = "btn_mcp_lnav";
+            this.btn_mcp_lnav.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_lnav.TabIndex = 97;
+            this.btn_mcp_lnav.Text = "LNAV";
+            this.btn_mcp_lnav.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_vorloc
+            // 
+            this.btn_mcp_vorloc.Location = new System.Drawing.Point(678, 85);
+            this.btn_mcp_vorloc.Name = "btn_mcp_vorloc";
+            this.btn_mcp_vorloc.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_vorloc.TabIndex = 98;
+            this.btn_mcp_vorloc.Text = "VOR\r\nLOC\r\n";
+            this.btn_mcp_vorloc.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_app
+            // 
+            this.btn_mcp_app.Location = new System.Drawing.Point(678, 172);
+            this.btn_mcp_app.Name = "btn_mcp_app";
+            this.btn_mcp_app.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_app.TabIndex = 99;
+            this.btn_mcp_app.Text = "APP";
+            this.btn_mcp_app.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_bank_dec
+            // 
+            this.btn_mcp_bank_dec.Location = new System.Drawing.Point(617, 50);
+            this.btn_mcp_bank_dec.Name = "btn_mcp_bank_dec";
+            this.btn_mcp_bank_dec.Size = new System.Drawing.Size(20, 20);
+            this.btn_mcp_bank_dec.TabIndex = 101;
+            this.btn_mcp_bank_dec.Text = "\\\\";
+            this.btn_mcp_bank_dec.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_bank_inc
+            // 
+            this.btn_mcp_bank_inc.Location = new System.Drawing.Point(643, 50);
+            this.btn_mcp_bank_inc.Name = "btn_mcp_bank_inc";
+            this.btn_mcp_bank_inc.Size = new System.Drawing.Size(20, 20);
+            this.btn_mcp_bank_inc.TabIndex = 100;
+            this.btn_mcp_bank_inc.Text = "//";
+            this.btn_mcp_bank_inc.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(731, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 13);
+            this.label10.TabIndex = 103;
+            this.label10.Text = "ALTITUDE";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mcp_altitude
+            // 
+            this.mcp_altitude.Location = new System.Drawing.Point(735, 25);
+            this.mcp_altitude.Name = "mcp_altitude";
+            this.mcp_altitude.Size = new System.Drawing.Size(53, 20);
+            this.mcp_altitude.TabIndex = 102;
+            this.mcp_altitude.Text = "000";
+            this.mcp_altitude.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btn_mcp_althld
+            // 
+            this.btn_mcp_althld.Location = new System.Drawing.Point(739, 172);
+            this.btn_mcp_althld.Name = "btn_mcp_althld";
+            this.btn_mcp_althld.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_althld.TabIndex = 107;
+            this.btn_mcp_althld.Text = "ALT\r\nHLD";
+            this.btn_mcp_althld.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_vs
+            // 
+            this.btn_mcp_vs.Location = new System.Drawing.Point(790, 172);
+            this.btn_mcp_vs.Name = "btn_mcp_vs";
+            this.btn_mcp_vs.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_vs.TabIndex = 108;
+            this.btn_mcp_vs.Text = "V/S";
+            this.btn_mcp_vs.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_altitude_dec
+            // 
+            this.btn_mcp_altitude_dec.Location = new System.Drawing.Point(739, 52);
+            this.btn_mcp_altitude_dec.Name = "btn_mcp_altitude_dec";
+            this.btn_mcp_altitude_dec.Size = new System.Drawing.Size(20, 20);
+            this.btn_mcp_altitude_dec.TabIndex = 110;
+            this.btn_mcp_altitude_dec.Text = "-";
+            this.btn_mcp_altitude_dec.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_altitude_inc
+            // 
+            this.btn_mcp_altitude_inc.Location = new System.Drawing.Point(765, 52);
+            this.btn_mcp_altitude_inc.Name = "btn_mcp_altitude_inc";
+            this.btn_mcp_altitude_inc.Size = new System.Drawing.Size(20, 20);
+            this.btn_mcp_altitude_inc.TabIndex = 109;
+            this.btn_mcp_altitude_inc.Text = "+";
+            this.btn_mcp_altitude_inc.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_altintv
+            // 
+            this.btn_mcp_altintv.Location = new System.Drawing.Point(791, 72);
+            this.btn_mcp_altintv.Name = "btn_mcp_altintv";
+            this.btn_mcp_altintv.Size = new System.Drawing.Size(40, 37);
+            this.btn_mcp_altintv.TabIndex = 111;
+            this.btn_mcp_altintv.Text = "ALT\r\nINTV";
+            this.btn_mcp_altintv.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_vs_dn
+            // 
+            this.btn_mcp_vs_dn.Location = new System.Drawing.Point(866, 53);
+            this.btn_mcp_vs_dn.Name = "btn_mcp_vs_dn";
+            this.btn_mcp_vs_dn.Size = new System.Drawing.Size(20, 39);
+            this.btn_mcp_vs_dn.TabIndex = 114;
+            this.btn_mcp_vs_dn.Text = "DN";
+            this.btn_mcp_vs_dn.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(824, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(76, 13);
+            this.label11.TabIndex = 113;
+            this.label11.Text = "VERT SPEED";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mcp_vs
+            // 
+            this.mcp_vs.Location = new System.Drawing.Point(836, 26);
+            this.mcp_vs.Name = "mcp_vs";
+            this.mcp_vs.Size = new System.Drawing.Size(53, 20);
+            this.mcp_vs.TabIndex = 112;
+            this.mcp_vs.Text = "000";
+            this.mcp_vs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btn_mcp_vs_up
+            // 
+            this.btn_mcp_vs_up.Location = new System.Drawing.Point(866, 98);
+            this.btn_mcp_vs_up.Name = "btn_mcp_vs_up";
+            this.btn_mcp_vs_up.Size = new System.Drawing.Size(20, 39);
+            this.btn_mcp_vs_up.TabIndex = 115;
+            this.btn_mcp_vs_up.Text = "UP";
+            this.btn_mcp_vs_up.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.Location = new System.Drawing.Point(936, 8);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 13);
+            this.label12.TabIndex = 116;
+            this.label12.Text = "A/P ENGAGE";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.Location = new System.Drawing.Point(936, 25);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(12, 13);
+            this.label13.TabIndex = 117;
+            this.label13.Text = "A";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.Location = new System.Drawing.Point(999, 25);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(12, 13);
+            this.label14.TabIndex = 118;
+            this.label14.Text = "B";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mcp_cmd_b
+            // 
+            this.mcp_cmd_b.AutoSize = true;
+            this.mcp_cmd_b.Enabled = false;
+            this.mcp_cmd_b.Location = new System.Drawing.Point(997, 74);
+            this.mcp_cmd_b.Name = "mcp_cmd_b";
+            this.mcp_cmd_b.Size = new System.Drawing.Size(14, 13);
+            this.mcp_cmd_b.TabIndex = 119;
+            this.mcp_cmd_b.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_cmd_b
+            // 
+            this.btn_mcp_cmd_b.Location = new System.Drawing.Point(982, 42);
+            this.btn_mcp_cmd_b.Name = "btn_mcp_cmd_b";
+            this.btn_mcp_cmd_b.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_cmd_b.TabIndex = 120;
+            this.btn_mcp_cmd_b.Text = "CMD";
+            this.btn_mcp_cmd_b.UseVisualStyleBackColor = true;
+            // 
+            // mcp_cws_b
+            // 
+            this.mcp_cws_b.AutoSize = true;
+            this.mcp_cws_b.Enabled = false;
+            this.mcp_cws_b.Location = new System.Drawing.Point(997, 125);
+            this.mcp_cws_b.Name = "mcp_cws_b";
+            this.mcp_cws_b.Size = new System.Drawing.Size(14, 13);
+            this.mcp_cws_b.TabIndex = 123;
+            this.mcp_cws_b.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_cws_b
+            // 
+            this.btn_mcp_cws_b.Location = new System.Drawing.Point(982, 93);
+            this.btn_mcp_cws_b.Name = "btn_mcp_cws_b";
+            this.btn_mcp_cws_b.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_cws_b.TabIndex = 124;
+            this.btn_mcp_cws_b.Text = "CWS";
+            this.btn_mcp_cws_b.UseVisualStyleBackColor = true;
+            // 
+            // mcp_cws_a
+            // 
+            this.mcp_cws_a.AutoSize = true;
+            this.mcp_cws_a.Enabled = false;
+            this.mcp_cws_a.Location = new System.Drawing.Point(935, 125);
+            this.mcp_cws_a.Name = "mcp_cws_a";
+            this.mcp_cws_a.Size = new System.Drawing.Size(14, 13);
+            this.mcp_cws_a.TabIndex = 121;
+            this.mcp_cws_a.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_cws_a
+            // 
+            this.btn_mcp_cws_a.Location = new System.Drawing.Point(920, 93);
+            this.btn_mcp_cws_a.Name = "btn_mcp_cws_a";
+            this.btn_mcp_cws_a.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_cws_a.TabIndex = 122;
+            this.btn_mcp_cws_a.Text = "CWS";
+            this.btn_mcp_cws_a.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_disengage
+            // 
+            this.btn_mcp_disengage.Location = new System.Drawing.Point(920, 172);
+            this.btn_mcp_disengage.Name = "btn_mcp_disengage";
+            this.btn_mcp_disengage.Size = new System.Drawing.Size(107, 45);
+            this.btn_mcp_disengage.TabIndex = 125;
+            this.btn_mcp_disengage.Text = "DISENGAGE";
+            this.btn_mcp_disengage.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 229);
+            this.ClientSize = new System.Drawing.Size(1040, 229);
+            this.Controls.Add(this.btn_mcp_disengage);
+            this.Controls.Add(this.mcp_cws_b);
+            this.Controls.Add(this.btn_mcp_cws_b);
+            this.Controls.Add(this.mcp_cws_a);
+            this.Controls.Add(this.btn_mcp_cws_a);
+            this.Controls.Add(this.mcp_cmd_b);
+            this.Controls.Add(this.btn_mcp_cmd_b);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.btn_mcp_vs_up);
+            this.Controls.Add(this.btn_mcp_vs_dn);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.mcp_vs);
+            this.Controls.Add(this.btn_mcp_altintv);
+            this.Controls.Add(this.btn_mcp_altitude_dec);
+            this.Controls.Add(this.btn_mcp_altitude_inc);
+            this.Controls.Add(this.btn_mcp_vs);
+            this.Controls.Add(this.btn_mcp_althld);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.mcp_altitude);
+            this.Controls.Add(this.btn_mcp_bank_dec);
+            this.Controls.Add(this.btn_mcp_bank_inc);
+            this.Controls.Add(this.btn_mcp_app);
+            this.Controls.Add(this.btn_mcp_vorloc);
+            this.Controls.Add(this.btn_mcp_lnav);
+            this.Controls.Add(this.btn_mcp_vnav);
+            this.Controls.Add(this.btn_mcp_heading_dec);
+            this.Controls.Add(this.btn_mcp_heading_inc);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.mcp_heading);
+            this.Controls.Add(this.btn_mcp_lvlchg);
+            this.Controls.Add(this.btn_mcp_speed);
+            this.Controls.Add(this.btn_mcp_n1);
+            this.Controls.Add(this.btn_mcp_spd_spdintv);
+            this.Controls.Add(this.btn_mcp_spd_co);
+            this.Controls.Add(this.btn_mcp_spd_dec);
+            this.Controls.Add(this.btn_mcp_spd_inc);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.mcp_spd);
+            this.Controls.Add(this.btn_mcp_fd_off);
+            this.Controls.Add(this.btn_mcp_fd_on);
+            this.Controls.Add(this.mcp_fd);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btn_mcp_at_off);
+            this.Controls.Add(this.btn_mcp_at_on);
+            this.Controls.Add(this.mcp_at);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btn_mcp_crs_l_dec);
+            this.Controls.Add(this.btn_mcp_crs_r_inc);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.mcp_crs_l);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.efis_tfc);
             this.Controls.Add(this.efis_ctr);
             this.Controls.Add(this.btn_efis_baro_dec);
@@ -694,6 +1291,60 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton efis_ctr;
         private System.Windows.Forms.RadioButton efis_tfc;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox mcp_crs_l;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_mcp_crs_l_dec;
+        private System.Windows.Forms.Button btn_mcp_crs_r_inc;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RadioButton mcp_at;
+        private System.Windows.Forms.Button btn_mcp_at_off;
+        private System.Windows.Forms.Button btn_mcp_at_on;
+        private System.Windows.Forms.Button btn_mcp_fd_off;
+        private System.Windows.Forms.Button btn_mcp_fd_on;
+        private System.Windows.Forms.RadioButton mcp_fd;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btn_mcp_spd_dec;
+        private System.Windows.Forms.Button btn_mcp_spd_inc;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox mcp_spd;
+        private System.Windows.Forms.Button btn_mcp_spd_co;
+        private System.Windows.Forms.Button btn_mcp_spd_spdintv;
+        private System.Windows.Forms.Button btn_mcp_n1;
+        private System.Windows.Forms.Button btn_mcp_speed;
+        private System.Windows.Forms.Button btn_mcp_lvlchg;
+        private System.Windows.Forms.Button btn_mcp_heading_dec;
+        private System.Windows.Forms.Button btn_mcp_heading_inc;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox mcp_heading;
+        private System.Windows.Forms.Button btn_mcp_vnav;
+        private System.Windows.Forms.Button btn_mcp_lnav;
+        private System.Windows.Forms.Button btn_mcp_vorloc;
+        private System.Windows.Forms.Button btn_mcp_app;
+        private System.Windows.Forms.Button btn_mcp_bank_dec;
+        private System.Windows.Forms.Button btn_mcp_bank_inc;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox mcp_altitude;
+        private System.Windows.Forms.Button btn_mcp_althld;
+        private System.Windows.Forms.Button btn_mcp_vs;
+        private System.Windows.Forms.Button btn_mcp_altitude_dec;
+        private System.Windows.Forms.Button btn_mcp_altitude_inc;
+        private System.Windows.Forms.Button btn_mcp_altintv;
+        private System.Windows.Forms.Button btn_mcp_vs_dn;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox mcp_vs;
+        private System.Windows.Forms.Button btn_mcp_vs_up;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.RadioButton mcp_cmd_b;
+        private System.Windows.Forms.Button btn_mcp_cmd_b;
+        private System.Windows.Forms.RadioButton mcp_cws_b;
+        private System.Windows.Forms.Button btn_mcp_cws_b;
+        private System.Windows.Forms.RadioButton mcp_cws_a;
+        private System.Windows.Forms.Button btn_mcp_cws_a;
+        private System.Windows.Forms.Button btn_mcp_disengage;
     }
 }
 
