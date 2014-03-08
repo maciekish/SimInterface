@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mcp_cmd_a = new System.Windows.Forms.RadioButton();
             this.btn_mcp_cmd_a = new System.Windows.Forms.Button();
             this.btn_efis_wxr = new System.Windows.Forms.Button();
             this.btn_efis_terr = new System.Windows.Forms.Button();
@@ -37,13 +36,6 @@
             this.btn_efis_pos = new System.Windows.Forms.Button();
             this.btn_efis_wpt = new System.Windows.Forms.Button();
             this.btn_efis_sta = new System.Windows.Forms.Button();
-            this.efis_wxr = new System.Windows.Forms.RadioButton();
-            this.efis_terr = new System.Windows.Forms.RadioButton();
-            this.efis_data = new System.Windows.Forms.RadioButton();
-            this.efis_arpt = new System.Windows.Forms.RadioButton();
-            this.efis_sta = new System.Windows.Forms.RadioButton();
-            this.efis_wpt = new System.Windows.Forms.RadioButton();
-            this.efis_pos = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.efis_mins_radio = new System.Windows.Forms.Button();
             this.efis_mins_baro = new System.Windows.Forms.Button();
@@ -76,20 +68,16 @@
             this.btn_efis_baro_hpa = new System.Windows.Forms.Button();
             this.btn_efis_baro_in = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.efis_ctr = new System.Windows.Forms.RadioButton();
-            this.efis_tfc = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.mcp_crs_l = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_mcp_crs_l_dec = new System.Windows.Forms.Button();
             this.btn_mcp_crs_r_inc = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.mcp_at = new System.Windows.Forms.RadioButton();
             this.btn_mcp_at_off = new System.Windows.Forms.Button();
             this.btn_mcp_at_on = new System.Windows.Forms.Button();
             this.btn_mcp_fd_off = new System.Windows.Forms.Button();
             this.btn_mcp_fd_on = new System.Windows.Forms.Button();
-            this.mcp_fd = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_mcp_spd_dec = new System.Windows.Forms.Button();
@@ -109,8 +97,8 @@
             this.btn_mcp_lnav = new System.Windows.Forms.Button();
             this.btn_mcp_vorloc = new System.Windows.Forms.Button();
             this.btn_mcp_app = new System.Windows.Forms.Button();
-            this.btn_mcp_bank_dec = new System.Windows.Forms.Button();
-            this.btn_mcp_bank_inc = new System.Windows.Forms.Button();
+            this.btn_mcp_bank_10 = new System.Windows.Forms.Button();
+            this.btn_mcp_bank_15 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.mcp_altitude = new System.Windows.Forms.TextBox();
             this.btn_mcp_althld = new System.Windows.Forms.Button();
@@ -125,24 +113,41 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.mcp_cmd_b = new System.Windows.Forms.RadioButton();
             this.btn_mcp_cmd_b = new System.Windows.Forms.Button();
-            this.mcp_cws_b = new System.Windows.Forms.RadioButton();
             this.btn_mcp_cws_b = new System.Windows.Forms.Button();
-            this.mcp_cws_a = new System.Windows.Forms.RadioButton();
             this.btn_mcp_cws_a = new System.Windows.Forms.Button();
             this.btn_mcp_disengage = new System.Windows.Forms.Button();
+            this.efis_wxr = new System.Windows.Forms.CheckBox();
+            this.efis_sta = new System.Windows.Forms.CheckBox();
+            this.efis_arpt = new System.Windows.Forms.CheckBox();
+            this.efis_wpt = new System.Windows.Forms.CheckBox();
+            this.efis_terr = new System.Windows.Forms.CheckBox();
+            this.efis_pos = new System.Windows.Forms.CheckBox();
+            this.efis_data = new System.Windows.Forms.CheckBox();
+            this.efis_ctr = new System.Windows.Forms.CheckBox();
+            this.efis_tfc = new System.Windows.Forms.CheckBox();
+            this.mcp_at = new System.Windows.Forms.CheckBox();
+            this.mcp_fd = new System.Windows.Forms.CheckBox();
+            this.mcp_cmd_a = new System.Windows.Forms.CheckBox();
+            this.mcp_cws_a = new System.Windows.Forms.CheckBox();
+            this.mcp_cws_b = new System.Windows.Forms.CheckBox();
+            this.mcp_cmd_b = new System.Windows.Forms.CheckBox();
+            this.mcp_n1 = new System.Windows.Forms.CheckBox();
+            this.mcp_speed = new System.Windows.Forms.CheckBox();
+            this.mcp_lvlchg = new System.Windows.Forms.CheckBox();
+            this.mcp_vnav = new System.Windows.Forms.CheckBox();
+            this.mcp_lnav = new System.Windows.Forms.CheckBox();
+            this.mcp_app = new System.Windows.Forms.CheckBox();
+            this.mcp_vs_on = new System.Windows.Forms.CheckBox();
+            this.mcp_althld = new System.Windows.Forms.CheckBox();
+            this.mcp_vorloc = new System.Windows.Forms.CheckBox();
+            this.mcp_hdgsel = new System.Windows.Forms.CheckBox();
+            this.btn_mcp_hdgsel = new System.Windows.Forms.Button();
+            this.btn_mcp_bank_20 = new System.Windows.Forms.Button();
+            this.btn_mcp_bank_25 = new System.Windows.Forms.Button();
+            this.btn_mcp_bank_30 = new System.Windows.Forms.Button();
+            this.mcp_disengage = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
-            // 
-            // mcp_cmd_a
-            // 
-            this.mcp_cmd_a.AutoSize = true;
-            this.mcp_cmd_a.Enabled = false;
-            this.mcp_cmd_a.Location = new System.Drawing.Point(935, 74);
-            this.mcp_cmd_a.Name = "mcp_cmd_a";
-            this.mcp_cmd_a.Size = new System.Drawing.Size(14, 13);
-            this.mcp_cmd_a.TabIndex = 15;
-            this.mcp_cmd_a.UseVisualStyleBackColor = true;
             // 
             // btn_mcp_cmd_a
             // 
@@ -223,76 +228,6 @@
             this.btn_efis_sta.Text = "STA";
             this.btn_efis_sta.UseVisualStyleBackColor = true;
             this.btn_efis_sta.Click += new System.EventHandler(this.btn_efis_sta_Click);
-            // 
-            // efis_wxr
-            // 
-            this.efis_wxr.AutoSize = true;
-            this.efis_wxr.Enabled = false;
-            this.efis_wxr.Location = new System.Drawing.Point(28, 204);
-            this.efis_wxr.Name = "efis_wxr";
-            this.efis_wxr.Size = new System.Drawing.Size(14, 13);
-            this.efis_wxr.TabIndex = 24;
-            this.efis_wxr.UseVisualStyleBackColor = true;
-            // 
-            // efis_terr
-            // 
-            this.efis_terr.AutoSize = true;
-            this.efis_terr.Enabled = false;
-            this.efis_terr.Location = new System.Drawing.Point(334, 204);
-            this.efis_terr.Name = "efis_terr";
-            this.efis_terr.Size = new System.Drawing.Size(14, 13);
-            this.efis_terr.TabIndex = 25;
-            this.efis_terr.UseVisualStyleBackColor = true;
-            // 
-            // efis_data
-            // 
-            this.efis_data.AutoSize = true;
-            this.efis_data.Enabled = false;
-            this.efis_data.Location = new System.Drawing.Point(233, 204);
-            this.efis_data.Name = "efis_data";
-            this.efis_data.Size = new System.Drawing.Size(14, 13);
-            this.efis_data.TabIndex = 27;
-            this.efis_data.UseVisualStyleBackColor = true;
-            // 
-            // efis_arpt
-            // 
-            this.efis_arpt.AutoSize = true;
-            this.efis_arpt.Enabled = false;
-            this.efis_arpt.Location = new System.Drawing.Point(182, 204);
-            this.efis_arpt.Name = "efis_arpt";
-            this.efis_arpt.Size = new System.Drawing.Size(14, 13);
-            this.efis_arpt.TabIndex = 26;
-            this.efis_arpt.UseVisualStyleBackColor = true;
-            // 
-            // efis_sta
-            // 
-            this.efis_sta.AutoSize = true;
-            this.efis_sta.Enabled = false;
-            this.efis_sta.Location = new System.Drawing.Point(78, 204);
-            this.efis_sta.Name = "efis_sta";
-            this.efis_sta.Size = new System.Drawing.Size(14, 13);
-            this.efis_sta.TabIndex = 30;
-            this.efis_sta.UseVisualStyleBackColor = true;
-            // 
-            // efis_wpt
-            // 
-            this.efis_wpt.AutoSize = true;
-            this.efis_wpt.Enabled = false;
-            this.efis_wpt.Location = new System.Drawing.Point(130, 204);
-            this.efis_wpt.Name = "efis_wpt";
-            this.efis_wpt.Size = new System.Drawing.Size(14, 13);
-            this.efis_wpt.TabIndex = 29;
-            this.efis_wpt.UseVisualStyleBackColor = true;
-            // 
-            // efis_pos
-            // 
-            this.efis_pos.AutoSize = true;
-            this.efis_pos.Enabled = false;
-            this.efis_pos.Location = new System.Drawing.Point(283, 204);
-            this.efis_pos.Name = "efis_pos";
-            this.efis_pos.Size = new System.Drawing.Size(14, 13);
-            this.efis_pos.TabIndex = 28;
-            this.efis_pos.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -612,26 +547,6 @@
             this.label2.Text = "BARO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // efis_ctr
-            // 
-            this.efis_ctr.AutoSize = true;
-            this.efis_ctr.Enabled = false;
-            this.efis_ctr.Location = new System.Drawing.Point(125, 154);
-            this.efis_ctr.Name = "efis_ctr";
-            this.efis_ctr.Size = new System.Drawing.Size(14, 13);
-            this.efis_ctr.TabIndex = 65;
-            this.efis_ctr.UseVisualStyleBackColor = true;
-            // 
-            // efis_tfc
-            // 
-            this.efis_tfc.AutoSize = true;
-            this.efis_tfc.Enabled = false;
-            this.efis_tfc.Location = new System.Drawing.Point(233, 154);
-            this.efis_tfc.Name = "efis_tfc";
-            this.efis_tfc.Size = new System.Drawing.Size(14, 13);
-            this.efis_tfc.TabIndex = 66;
-            this.efis_tfc.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -642,6 +557,7 @@
             // 
             // mcp_crs_l
             // 
+            this.mcp_crs_l.Enabled = false;
             this.mcp_crs_l.Location = new System.Drawing.Point(381, 26);
             this.mcp_crs_l.Name = "mcp_crs_l";
             this.mcp_crs_l.Size = new System.Drawing.Size(53, 20);
@@ -666,6 +582,7 @@
             this.btn_mcp_crs_l_dec.TabIndex = 71;
             this.btn_mcp_crs_l_dec.Text = "-";
             this.btn_mcp_crs_l_dec.UseVisualStyleBackColor = true;
+            this.btn_mcp_crs_l_dec.Click += new System.EventHandler(this.btn_mcp_crs_l_dec_Click);
             // 
             // btn_mcp_crs_r_inc
             // 
@@ -675,6 +592,7 @@
             this.btn_mcp_crs_r_inc.TabIndex = 70;
             this.btn_mcp_crs_r_inc.Text = "+";
             this.btn_mcp_crs_r_inc.UseVisualStyleBackColor = true;
+            this.btn_mcp_crs_r_inc.Click += new System.EventHandler(this.btn_mcp_crs_r_inc_Click);
             // 
             // label5
             // 
@@ -685,16 +603,6 @@
             this.label5.Text = "A/T\r\nARM";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // mcp_at
-            // 
-            this.mcp_at.AutoSize = true;
-            this.mcp_at.Enabled = false;
-            this.mcp_at.Location = new System.Drawing.Point(453, 35);
-            this.mcp_at.Name = "mcp_at";
-            this.mcp_at.Size = new System.Drawing.Size(14, 13);
-            this.mcp_at.TabIndex = 73;
-            this.mcp_at.UseVisualStyleBackColor = true;
-            // 
             // btn_mcp_at_off
             // 
             this.btn_mcp_at_off.Location = new System.Drawing.Point(439, 73);
@@ -703,6 +611,7 @@
             this.btn_mcp_at_off.TabIndex = 75;
             this.btn_mcp_at_off.Text = "OFF";
             this.btn_mcp_at_off.UseVisualStyleBackColor = true;
+            this.btn_mcp_at_off.Click += new System.EventHandler(this.btn_mcp_at_off_Click);
             // 
             // btn_mcp_at_on
             // 
@@ -712,6 +621,7 @@
             this.btn_mcp_at_on.TabIndex = 74;
             this.btn_mcp_at_on.Text = "ON";
             this.btn_mcp_at_on.UseVisualStyleBackColor = true;
+            this.btn_mcp_at_on.Click += new System.EventHandler(this.btn_mcp_at_on_Click);
             // 
             // btn_mcp_fd_off
             // 
@@ -721,6 +631,7 @@
             this.btn_mcp_fd_off.TabIndex = 80;
             this.btn_mcp_fd_off.Text = "OFF";
             this.btn_mcp_fd_off.UseVisualStyleBackColor = true;
+            this.btn_mcp_fd_off.Click += new System.EventHandler(this.btn_mcp_fd_off_Click);
             // 
             // btn_mcp_fd_on
             // 
@@ -730,16 +641,7 @@
             this.btn_mcp_fd_on.TabIndex = 79;
             this.btn_mcp_fd_on.Text = "ON";
             this.btn_mcp_fd_on.UseVisualStyleBackColor = true;
-            // 
-            // mcp_fd
-            // 
-            this.mcp_fd.AutoSize = true;
-            this.mcp_fd.Enabled = false;
-            this.mcp_fd.Location = new System.Drawing.Point(408, 159);
-            this.mcp_fd.Name = "mcp_fd";
-            this.mcp_fd.Size = new System.Drawing.Size(14, 13);
-            this.mcp_fd.TabIndex = 78;
-            this.mcp_fd.UseVisualStyleBackColor = true;
+            this.btn_mcp_fd_on.Click += new System.EventHandler(this.btn_mcp_fd_on_Click);
             // 
             // label6
             // 
@@ -766,6 +668,7 @@
             this.btn_mcp_spd_dec.TabIndex = 84;
             this.btn_mcp_spd_dec.Text = "-";
             this.btn_mcp_spd_dec.UseVisualStyleBackColor = true;
+            this.btn_mcp_spd_dec.Click += new System.EventHandler(this.btn_mcp_spd_dec_Click);
             // 
             // btn_mcp_spd_inc
             // 
@@ -775,6 +678,7 @@
             this.btn_mcp_spd_inc.TabIndex = 83;
             this.btn_mcp_spd_inc.Text = "+";
             this.btn_mcp_spd_inc.UseVisualStyleBackColor = true;
+            this.btn_mcp_spd_inc.Click += new System.EventHandler(this.btn_mcp_spd_inc_Click);
             // 
             // label8
             // 
@@ -787,6 +691,7 @@
             // 
             // mcp_spd
             // 
+            this.mcp_spd.Enabled = false;
             this.mcp_spd.Location = new System.Drawing.Point(494, 26);
             this.mcp_spd.Name = "mcp_spd";
             this.mcp_spd.Size = new System.Drawing.Size(53, 20);
@@ -802,6 +707,7 @@
             this.btn_mcp_spd_co.TabIndex = 85;
             this.btn_mcp_spd_co.Text = "C/O";
             this.btn_mcp_spd_co.UseVisualStyleBackColor = true;
+            this.btn_mcp_spd_co.Click += new System.EventHandler(this.btn_mcp_spd_co_Click);
             // 
             // btn_mcp_spd_spdintv
             // 
@@ -811,6 +717,7 @@
             this.btn_mcp_spd_spdintv.TabIndex = 86;
             this.btn_mcp_spd_spdintv.Text = "SPD";
             this.btn_mcp_spd_spdintv.UseVisualStyleBackColor = true;
+            this.btn_mcp_spd_spdintv.Click += new System.EventHandler(this.btn_mcp_spd_spdintv_Click);
             // 
             // btn_mcp_n1
             // 
@@ -820,6 +727,7 @@
             this.btn_mcp_n1.TabIndex = 87;
             this.btn_mcp_n1.Text = "N1";
             this.btn_mcp_n1.UseVisualStyleBackColor = true;
+            this.btn_mcp_n1.Click += new System.EventHandler(this.btn_mcp_n1_Click);
             // 
             // btn_mcp_speed
             // 
@@ -829,6 +737,7 @@
             this.btn_mcp_speed.TabIndex = 88;
             this.btn_mcp_speed.Text = "SPEED";
             this.btn_mcp_speed.UseVisualStyleBackColor = true;
+            this.btn_mcp_speed.Click += new System.EventHandler(this.btn_mcp_speed_Click);
             // 
             // btn_mcp_lvlchg
             // 
@@ -838,6 +747,7 @@
             this.btn_mcp_lvlchg.TabIndex = 89;
             this.btn_mcp_lvlchg.Text = "LVL\r\nCHG";
             this.btn_mcp_lvlchg.UseVisualStyleBackColor = true;
+            this.btn_mcp_lvlchg.Click += new System.EventHandler(this.btn_mcp_lvlchg_Click);
             // 
             // btn_mcp_heading_dec
             // 
@@ -847,6 +757,7 @@
             this.btn_mcp_heading_dec.TabIndex = 93;
             this.btn_mcp_heading_dec.Text = "-";
             this.btn_mcp_heading_dec.UseVisualStyleBackColor = true;
+            this.btn_mcp_heading_dec.Click += new System.EventHandler(this.btn_mcp_heading_dec_Click);
             // 
             // btn_mcp_heading_inc
             // 
@@ -856,6 +767,7 @@
             this.btn_mcp_heading_inc.TabIndex = 92;
             this.btn_mcp_heading_inc.Text = "+";
             this.btn_mcp_heading_inc.UseVisualStyleBackColor = true;
+            this.btn_mcp_heading_inc.Click += new System.EventHandler(this.btn_mcp_heading_inc_Click);
             // 
             // label9
             // 
@@ -868,6 +780,7 @@
             // 
             // mcp_heading
             // 
+            this.mcp_heading.Enabled = false;
             this.mcp_heading.Location = new System.Drawing.Point(613, 26);
             this.mcp_heading.Name = "mcp_heading";
             this.mcp_heading.Size = new System.Drawing.Size(53, 20);
@@ -883,6 +796,7 @@
             this.btn_mcp_vnav.TabIndex = 96;
             this.btn_mcp_vnav.Text = "VNAV";
             this.btn_mcp_vnav.UseVisualStyleBackColor = true;
+            this.btn_mcp_vnav.Click += new System.EventHandler(this.btn_mcp_vnav_Click);
             // 
             // btn_mcp_lnav
             // 
@@ -892,6 +806,7 @@
             this.btn_mcp_lnav.TabIndex = 97;
             this.btn_mcp_lnav.Text = "LNAV";
             this.btn_mcp_lnav.UseVisualStyleBackColor = true;
+            this.btn_mcp_lnav.Click += new System.EventHandler(this.btn_mcp_lnav_Click);
             // 
             // btn_mcp_vorloc
             // 
@@ -901,6 +816,7 @@
             this.btn_mcp_vorloc.TabIndex = 98;
             this.btn_mcp_vorloc.Text = "VOR\r\nLOC\r\n";
             this.btn_mcp_vorloc.UseVisualStyleBackColor = true;
+            this.btn_mcp_vorloc.Click += new System.EventHandler(this.btn_mcp_vorloc_Click);
             // 
             // btn_mcp_app
             // 
@@ -910,24 +826,27 @@
             this.btn_mcp_app.TabIndex = 99;
             this.btn_mcp_app.Text = "APP";
             this.btn_mcp_app.UseVisualStyleBackColor = true;
+            this.btn_mcp_app.Click += new System.EventHandler(this.btn_mcp_app_Click);
             // 
-            // btn_mcp_bank_dec
+            // btn_mcp_bank_10
             // 
-            this.btn_mcp_bank_dec.Location = new System.Drawing.Point(617, 50);
-            this.btn_mcp_bank_dec.Name = "btn_mcp_bank_dec";
-            this.btn_mcp_bank_dec.Size = new System.Drawing.Size(20, 20);
-            this.btn_mcp_bank_dec.TabIndex = 101;
-            this.btn_mcp_bank_dec.Text = "\\\\";
-            this.btn_mcp_bank_dec.UseVisualStyleBackColor = true;
+            this.btn_mcp_bank_10.Location = new System.Drawing.Point(612, 50);
+            this.btn_mcp_bank_10.Name = "btn_mcp_bank_10";
+            this.btn_mcp_bank_10.Size = new System.Drawing.Size(12, 20);
+            this.btn_mcp_bank_10.TabIndex = 101;
+            this.btn_mcp_bank_10.Text = "\\";
+            this.btn_mcp_bank_10.UseVisualStyleBackColor = true;
+            this.btn_mcp_bank_10.Click += new System.EventHandler(this.btn_mcp_bank_10_Click);
             // 
-            // btn_mcp_bank_inc
+            // btn_mcp_bank_15
             // 
-            this.btn_mcp_bank_inc.Location = new System.Drawing.Point(643, 50);
-            this.btn_mcp_bank_inc.Name = "btn_mcp_bank_inc";
-            this.btn_mcp_bank_inc.Size = new System.Drawing.Size(20, 20);
-            this.btn_mcp_bank_inc.TabIndex = 100;
-            this.btn_mcp_bank_inc.Text = "//";
-            this.btn_mcp_bank_inc.UseVisualStyleBackColor = true;
+            this.btn_mcp_bank_15.Location = new System.Drawing.Point(623, 50);
+            this.btn_mcp_bank_15.Name = "btn_mcp_bank_15";
+            this.btn_mcp_bank_15.Size = new System.Drawing.Size(12, 20);
+            this.btn_mcp_bank_15.TabIndex = 100;
+            this.btn_mcp_bank_15.Text = "\\";
+            this.btn_mcp_bank_15.UseVisualStyleBackColor = true;
+            this.btn_mcp_bank_15.Click += new System.EventHandler(this.btn_mcp_bank_15_Click);
             // 
             // label10
             // 
@@ -940,6 +859,7 @@
             // 
             // mcp_altitude
             // 
+            this.mcp_altitude.Enabled = false;
             this.mcp_altitude.Location = new System.Drawing.Point(735, 25);
             this.mcp_altitude.Name = "mcp_altitude";
             this.mcp_altitude.Size = new System.Drawing.Size(53, 20);
@@ -955,6 +875,7 @@
             this.btn_mcp_althld.TabIndex = 107;
             this.btn_mcp_althld.Text = "ALT\r\nHLD";
             this.btn_mcp_althld.UseVisualStyleBackColor = true;
+            this.btn_mcp_althld.Click += new System.EventHandler(this.btn_mcp_althld_Click);
             // 
             // btn_mcp_vs
             // 
@@ -964,6 +885,7 @@
             this.btn_mcp_vs.TabIndex = 108;
             this.btn_mcp_vs.Text = "V/S";
             this.btn_mcp_vs.UseVisualStyleBackColor = true;
+            this.btn_mcp_vs.Click += new System.EventHandler(this.btn_mcp_vs_Click);
             // 
             // btn_mcp_altitude_dec
             // 
@@ -973,6 +895,7 @@
             this.btn_mcp_altitude_dec.TabIndex = 110;
             this.btn_mcp_altitude_dec.Text = "-";
             this.btn_mcp_altitude_dec.UseVisualStyleBackColor = true;
+            this.btn_mcp_altitude_dec.Click += new System.EventHandler(this.btn_mcp_altitude_dec_Click);
             // 
             // btn_mcp_altitude_inc
             // 
@@ -982,6 +905,7 @@
             this.btn_mcp_altitude_inc.TabIndex = 109;
             this.btn_mcp_altitude_inc.Text = "+";
             this.btn_mcp_altitude_inc.UseVisualStyleBackColor = true;
+            this.btn_mcp_altitude_inc.Click += new System.EventHandler(this.btn_mcp_altitude_inc_Click);
             // 
             // btn_mcp_altintv
             // 
@@ -991,6 +915,7 @@
             this.btn_mcp_altintv.TabIndex = 111;
             this.btn_mcp_altintv.Text = "ALT\r\nINTV";
             this.btn_mcp_altintv.UseVisualStyleBackColor = true;
+            this.btn_mcp_altintv.Click += new System.EventHandler(this.btn_mcp_altintv_Click);
             // 
             // btn_mcp_vs_dn
             // 
@@ -1000,6 +925,7 @@
             this.btn_mcp_vs_dn.TabIndex = 114;
             this.btn_mcp_vs_dn.Text = "DN";
             this.btn_mcp_vs_dn.UseVisualStyleBackColor = true;
+            this.btn_mcp_vs_dn.Click += new System.EventHandler(this.btn_mcp_vs_dn_Click);
             // 
             // label11
             // 
@@ -1012,6 +938,7 @@
             // 
             // mcp_vs
             // 
+            this.mcp_vs.Enabled = false;
             this.mcp_vs.Location = new System.Drawing.Point(836, 26);
             this.mcp_vs.Name = "mcp_vs";
             this.mcp_vs.Size = new System.Drawing.Size(53, 20);
@@ -1027,6 +954,7 @@
             this.btn_mcp_vs_up.TabIndex = 115;
             this.btn_mcp_vs_up.Text = "UP";
             this.btn_mcp_vs_up.UseVisualStyleBackColor = true;
+            this.btn_mcp_vs_up.Click += new System.EventHandler(this.btn_mcp_vs_up_Click);
             // 
             // label12
             // 
@@ -1055,16 +983,6 @@
             this.label14.Text = "B";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // mcp_cmd_b
-            // 
-            this.mcp_cmd_b.AutoSize = true;
-            this.mcp_cmd_b.Enabled = false;
-            this.mcp_cmd_b.Location = new System.Drawing.Point(997, 74);
-            this.mcp_cmd_b.Name = "mcp_cmd_b";
-            this.mcp_cmd_b.Size = new System.Drawing.Size(14, 13);
-            this.mcp_cmd_b.TabIndex = 119;
-            this.mcp_cmd_b.UseVisualStyleBackColor = true;
-            // 
             // btn_mcp_cmd_b
             // 
             this.btn_mcp_cmd_b.Location = new System.Drawing.Point(982, 42);
@@ -1073,16 +991,7 @@
             this.btn_mcp_cmd_b.TabIndex = 120;
             this.btn_mcp_cmd_b.Text = "CMD";
             this.btn_mcp_cmd_b.UseVisualStyleBackColor = true;
-            // 
-            // mcp_cws_b
-            // 
-            this.mcp_cws_b.AutoSize = true;
-            this.mcp_cws_b.Enabled = false;
-            this.mcp_cws_b.Location = new System.Drawing.Point(997, 125);
-            this.mcp_cws_b.Name = "mcp_cws_b";
-            this.mcp_cws_b.Size = new System.Drawing.Size(14, 13);
-            this.mcp_cws_b.TabIndex = 123;
-            this.mcp_cws_b.UseVisualStyleBackColor = true;
+            this.btn_mcp_cmd_b.Click += new System.EventHandler(this.btn_mcp_cmd_b_Click);
             // 
             // btn_mcp_cws_b
             // 
@@ -1092,16 +1001,7 @@
             this.btn_mcp_cws_b.TabIndex = 124;
             this.btn_mcp_cws_b.Text = "CWS";
             this.btn_mcp_cws_b.UseVisualStyleBackColor = true;
-            // 
-            // mcp_cws_a
-            // 
-            this.mcp_cws_a.AutoSize = true;
-            this.mcp_cws_a.Enabled = false;
-            this.mcp_cws_a.Location = new System.Drawing.Point(935, 125);
-            this.mcp_cws_a.Name = "mcp_cws_a";
-            this.mcp_cws_a.Size = new System.Drawing.Size(14, 13);
-            this.mcp_cws_a.TabIndex = 121;
-            this.mcp_cws_a.UseVisualStyleBackColor = true;
+            this.btn_mcp_cws_b.Click += new System.EventHandler(this.btn_mcp_cws_b_Click);
             // 
             // btn_mcp_cws_a
             // 
@@ -1111,6 +1011,7 @@
             this.btn_mcp_cws_a.TabIndex = 122;
             this.btn_mcp_cws_a.Text = "CWS";
             this.btn_mcp_cws_a.UseVisualStyleBackColor = true;
+            this.btn_mcp_cws_a.Click += new System.EventHandler(this.btn_mcp_cws_a_Click);
             // 
             // btn_mcp_disengage
             // 
@@ -1120,18 +1021,346 @@
             this.btn_mcp_disengage.TabIndex = 125;
             this.btn_mcp_disengage.Text = "DISENGAGE";
             this.btn_mcp_disengage.UseVisualStyleBackColor = true;
+            this.btn_mcp_disengage.Click += new System.EventHandler(this.btn_mcp_disengage_Click);
+            // 
+            // efis_wxr
+            // 
+            this.efis_wxr.AutoSize = true;
+            this.efis_wxr.Enabled = false;
+            this.efis_wxr.Location = new System.Drawing.Point(28, 205);
+            this.efis_wxr.Name = "efis_wxr";
+            this.efis_wxr.Size = new System.Drawing.Size(15, 14);
+            this.efis_wxr.TabIndex = 127;
+            this.efis_wxr.UseVisualStyleBackColor = true;
+            // 
+            // efis_sta
+            // 
+            this.efis_sta.AutoSize = true;
+            this.efis_sta.Enabled = false;
+            this.efis_sta.Location = new System.Drawing.Point(79, 205);
+            this.efis_sta.Name = "efis_sta";
+            this.efis_sta.Size = new System.Drawing.Size(15, 14);
+            this.efis_sta.TabIndex = 128;
+            this.efis_sta.UseVisualStyleBackColor = true;
+            // 
+            // efis_arpt
+            // 
+            this.efis_arpt.AutoSize = true;
+            this.efis_arpt.Enabled = false;
+            this.efis_arpt.Location = new System.Drawing.Point(181, 205);
+            this.efis_arpt.Name = "efis_arpt";
+            this.efis_arpt.Size = new System.Drawing.Size(15, 14);
+            this.efis_arpt.TabIndex = 130;
+            this.efis_arpt.UseVisualStyleBackColor = true;
+            // 
+            // efis_wpt
+            // 
+            this.efis_wpt.AutoSize = true;
+            this.efis_wpt.Enabled = false;
+            this.efis_wpt.Location = new System.Drawing.Point(130, 205);
+            this.efis_wpt.Name = "efis_wpt";
+            this.efis_wpt.Size = new System.Drawing.Size(15, 14);
+            this.efis_wpt.TabIndex = 129;
+            this.efis_wpt.UseVisualStyleBackColor = true;
+            // 
+            // efis_terr
+            // 
+            this.efis_terr.AutoSize = true;
+            this.efis_terr.Enabled = false;
+            this.efis_terr.Location = new System.Drawing.Point(335, 205);
+            this.efis_terr.Name = "efis_terr";
+            this.efis_terr.Size = new System.Drawing.Size(15, 14);
+            this.efis_terr.TabIndex = 133;
+            this.efis_terr.UseVisualStyleBackColor = true;
+            // 
+            // efis_pos
+            // 
+            this.efis_pos.AutoSize = true;
+            this.efis_pos.Enabled = false;
+            this.efis_pos.Location = new System.Drawing.Point(284, 205);
+            this.efis_pos.Name = "efis_pos";
+            this.efis_pos.Size = new System.Drawing.Size(15, 14);
+            this.efis_pos.TabIndex = 132;
+            this.efis_pos.UseVisualStyleBackColor = true;
+            // 
+            // efis_data
+            // 
+            this.efis_data.AutoSize = true;
+            this.efis_data.Enabled = false;
+            this.efis_data.Location = new System.Drawing.Point(233, 205);
+            this.efis_data.Name = "efis_data";
+            this.efis_data.Size = new System.Drawing.Size(15, 14);
+            this.efis_data.TabIndex = 131;
+            this.efis_data.UseVisualStyleBackColor = true;
+            // 
+            // efis_ctr
+            // 
+            this.efis_ctr.AutoSize = true;
+            this.efis_ctr.Enabled = false;
+            this.efis_ctr.Location = new System.Drawing.Point(125, 153);
+            this.efis_ctr.Name = "efis_ctr";
+            this.efis_ctr.Size = new System.Drawing.Size(15, 14);
+            this.efis_ctr.TabIndex = 134;
+            this.efis_ctr.UseVisualStyleBackColor = true;
+            // 
+            // efis_tfc
+            // 
+            this.efis_tfc.AutoSize = true;
+            this.efis_tfc.Enabled = false;
+            this.efis_tfc.Location = new System.Drawing.Point(233, 153);
+            this.efis_tfc.Name = "efis_tfc";
+            this.efis_tfc.Size = new System.Drawing.Size(15, 14);
+            this.efis_tfc.TabIndex = 135;
+            this.efis_tfc.UseVisualStyleBackColor = true;
+            // 
+            // mcp_at
+            // 
+            this.mcp_at.AutoSize = true;
+            this.mcp_at.Enabled = false;
+            this.mcp_at.Location = new System.Drawing.Point(453, 38);
+            this.mcp_at.Name = "mcp_at";
+            this.mcp_at.Size = new System.Drawing.Size(15, 14);
+            this.mcp_at.TabIndex = 136;
+            this.mcp_at.UseVisualStyleBackColor = true;
+            // 
+            // mcp_fd
+            // 
+            this.mcp_fd.AutoSize = true;
+            this.mcp_fd.Enabled = false;
+            this.mcp_fd.Location = new System.Drawing.Point(408, 161);
+            this.mcp_fd.Name = "mcp_fd";
+            this.mcp_fd.Size = new System.Drawing.Size(15, 14);
+            this.mcp_fd.TabIndex = 137;
+            this.mcp_fd.UseVisualStyleBackColor = true;
+            // 
+            // mcp_cmd_a
+            // 
+            this.mcp_cmd_a.AutoSize = true;
+            this.mcp_cmd_a.Enabled = false;
+            this.mcp_cmd_a.Location = new System.Drawing.Point(935, 75);
+            this.mcp_cmd_a.Name = "mcp_cmd_a";
+            this.mcp_cmd_a.Size = new System.Drawing.Size(15, 14);
+            this.mcp_cmd_a.TabIndex = 138;
+            this.mcp_cmd_a.UseVisualStyleBackColor = true;
+            // 
+            // mcp_cws_a
+            // 
+            this.mcp_cws_a.AutoSize = true;
+            this.mcp_cws_a.Enabled = false;
+            this.mcp_cws_a.Location = new System.Drawing.Point(935, 126);
+            this.mcp_cws_a.Name = "mcp_cws_a";
+            this.mcp_cws_a.Size = new System.Drawing.Size(15, 14);
+            this.mcp_cws_a.TabIndex = 139;
+            this.mcp_cws_a.UseVisualStyleBackColor = true;
+            // 
+            // mcp_cws_b
+            // 
+            this.mcp_cws_b.AutoSize = true;
+            this.mcp_cws_b.Enabled = false;
+            this.mcp_cws_b.Location = new System.Drawing.Point(997, 126);
+            this.mcp_cws_b.Name = "mcp_cws_b";
+            this.mcp_cws_b.Size = new System.Drawing.Size(15, 14);
+            this.mcp_cws_b.TabIndex = 141;
+            this.mcp_cws_b.UseVisualStyleBackColor = true;
+            // 
+            // mcp_cmd_b
+            // 
+            this.mcp_cmd_b.AutoSize = true;
+            this.mcp_cmd_b.Enabled = false;
+            this.mcp_cmd_b.Location = new System.Drawing.Point(997, 75);
+            this.mcp_cmd_b.Name = "mcp_cmd_b";
+            this.mcp_cmd_b.Size = new System.Drawing.Size(15, 14);
+            this.mcp_cmd_b.TabIndex = 140;
+            this.mcp_cmd_b.UseVisualStyleBackColor = true;
+            // 
+            // mcp_n1
+            // 
+            this.mcp_n1.AutoSize = true;
+            this.mcp_n1.Enabled = false;
+            this.mcp_n1.Location = new System.Drawing.Point(459, 205);
+            this.mcp_n1.Name = "mcp_n1";
+            this.mcp_n1.Size = new System.Drawing.Size(15, 14);
+            this.mcp_n1.TabIndex = 142;
+            this.mcp_n1.UseVisualStyleBackColor = true;
+            // 
+            // mcp_speed
+            // 
+            this.mcp_speed.AutoSize = true;
+            this.mcp_speed.Enabled = false;
+            this.mcp_speed.Location = new System.Drawing.Point(512, 205);
+            this.mcp_speed.Name = "mcp_speed";
+            this.mcp_speed.Size = new System.Drawing.Size(15, 14);
+            this.mcp_speed.TabIndex = 143;
+            this.mcp_speed.UseVisualStyleBackColor = true;
+            // 
+            // mcp_lvlchg
+            // 
+            this.mcp_lvlchg.AutoSize = true;
+            this.mcp_lvlchg.Enabled = false;
+            this.mcp_lvlchg.Location = new System.Drawing.Point(575, 205);
+            this.mcp_lvlchg.Name = "mcp_lvlchg";
+            this.mcp_lvlchg.Size = new System.Drawing.Size(15, 14);
+            this.mcp_lvlchg.TabIndex = 144;
+            this.mcp_lvlchg.UseVisualStyleBackColor = true;
+            // 
+            // mcp_vnav
+            // 
+            this.mcp_vnav.AutoSize = true;
+            this.mcp_vnav.Enabled = false;
+            this.mcp_vnav.Location = new System.Drawing.Point(575, 42);
+            this.mcp_vnav.Name = "mcp_vnav";
+            this.mcp_vnav.Size = new System.Drawing.Size(15, 14);
+            this.mcp_vnav.TabIndex = 145;
+            this.mcp_vnav.UseVisualStyleBackColor = true;
+            // 
+            // mcp_lnav
+            // 
+            this.mcp_lnav.AutoSize = true;
+            this.mcp_lnav.Enabled = false;
+            this.mcp_lnav.Location = new System.Drawing.Point(694, 42);
+            this.mcp_lnav.Name = "mcp_lnav";
+            this.mcp_lnav.Size = new System.Drawing.Size(15, 14);
+            this.mcp_lnav.TabIndex = 146;
+            this.mcp_lnav.UseVisualStyleBackColor = true;
+            // 
+            // mcp_app
+            // 
+            this.mcp_app.AutoSize = true;
+            this.mcp_app.Enabled = false;
+            this.mcp_app.Location = new System.Drawing.Point(694, 205);
+            this.mcp_app.Name = "mcp_app";
+            this.mcp_app.Size = new System.Drawing.Size(15, 14);
+            this.mcp_app.TabIndex = 147;
+            this.mcp_app.UseVisualStyleBackColor = true;
+            // 
+            // mcp_vs_on
+            // 
+            this.mcp_vs_on.AutoSize = true;
+            this.mcp_vs_on.Enabled = false;
+            this.mcp_vs_on.Location = new System.Drawing.Point(806, 205);
+            this.mcp_vs_on.Name = "mcp_vs_on";
+            this.mcp_vs_on.Size = new System.Drawing.Size(15, 14);
+            this.mcp_vs_on.TabIndex = 150;
+            this.mcp_vs_on.UseVisualStyleBackColor = true;
+            // 
+            // mcp_althld
+            // 
+            this.mcp_althld.AutoSize = true;
+            this.mcp_althld.Enabled = false;
+            this.mcp_althld.Location = new System.Drawing.Point(755, 205);
+            this.mcp_althld.Name = "mcp_althld";
+            this.mcp_althld.Size = new System.Drawing.Size(15, 14);
+            this.mcp_althld.TabIndex = 149;
+            this.mcp_althld.UseVisualStyleBackColor = true;
+            // 
+            // mcp_vorloc
+            // 
+            this.mcp_vorloc.AutoSize = true;
+            this.mcp_vorloc.Enabled = false;
+            this.mcp_vorloc.Location = new System.Drawing.Point(694, 118);
+            this.mcp_vorloc.Name = "mcp_vorloc";
+            this.mcp_vorloc.Size = new System.Drawing.Size(15, 14);
+            this.mcp_vorloc.TabIndex = 151;
+            this.mcp_vorloc.UseVisualStyleBackColor = true;
+            // 
+            // mcp_hdgsel
+            // 
+            this.mcp_hdgsel.AutoSize = true;
+            this.mcp_hdgsel.Enabled = false;
+            this.mcp_hdgsel.Location = new System.Drawing.Point(634, 205);
+            this.mcp_hdgsel.Name = "mcp_hdgsel";
+            this.mcp_hdgsel.Size = new System.Drawing.Size(15, 14);
+            this.mcp_hdgsel.TabIndex = 153;
+            this.mcp_hdgsel.UseVisualStyleBackColor = true;
+            // 
+            // btn_mcp_hdgsel
+            // 
+            this.btn_mcp_hdgsel.Location = new System.Drawing.Point(618, 172);
+            this.btn_mcp_hdgsel.Name = "btn_mcp_hdgsel";
+            this.btn_mcp_hdgsel.Size = new System.Drawing.Size(45, 45);
+            this.btn_mcp_hdgsel.TabIndex = 152;
+            this.btn_mcp_hdgsel.Text = "HDG\r\nSEL";
+            this.btn_mcp_hdgsel.UseVisualStyleBackColor = true;
+            this.btn_mcp_hdgsel.Click += new System.EventHandler(this.btn_mcp_hdgsel_Click);
+            // 
+            // btn_mcp_bank_20
+            // 
+            this.btn_mcp_bank_20.Location = new System.Drawing.Point(634, 50);
+            this.btn_mcp_bank_20.Name = "btn_mcp_bank_20";
+            this.btn_mcp_bank_20.Size = new System.Drawing.Size(12, 20);
+            this.btn_mcp_bank_20.TabIndex = 155;
+            this.btn_mcp_bank_20.Text = "|";
+            this.btn_mcp_bank_20.UseVisualStyleBackColor = true;
+            this.btn_mcp_bank_20.Click += new System.EventHandler(this.btn_mcp_bank_20_Click);
+            // 
+            // btn_mcp_bank_25
+            // 
+            this.btn_mcp_bank_25.Location = new System.Drawing.Point(645, 50);
+            this.btn_mcp_bank_25.Name = "btn_mcp_bank_25";
+            this.btn_mcp_bank_25.Size = new System.Drawing.Size(12, 20);
+            this.btn_mcp_bank_25.TabIndex = 154;
+            this.btn_mcp_bank_25.Text = "/";
+            this.btn_mcp_bank_25.UseVisualStyleBackColor = true;
+            this.btn_mcp_bank_25.Click += new System.EventHandler(this.btn_mcp_bank_25_Click);
+            // 
+            // btn_mcp_bank_30
+            // 
+            this.btn_mcp_bank_30.Location = new System.Drawing.Point(656, 50);
+            this.btn_mcp_bank_30.Name = "btn_mcp_bank_30";
+            this.btn_mcp_bank_30.Size = new System.Drawing.Size(12, 20);
+            this.btn_mcp_bank_30.TabIndex = 156;
+            this.btn_mcp_bank_30.Text = "/";
+            this.btn_mcp_bank_30.UseVisualStyleBackColor = true;
+            this.btn_mcp_bank_30.Click += new System.EventHandler(this.btn_mcp_bank_30_Click);
+            // 
+            // mcp_disengage
+            // 
+            this.mcp_disengage.AutoSize = true;
+            this.mcp_disengage.Enabled = false;
+            this.mcp_disengage.Location = new System.Drawing.Point(967, 205);
+            this.mcp_disengage.Name = "mcp_disengage";
+            this.mcp_disengage.Size = new System.Drawing.Size(15, 14);
+            this.mcp_disengage.TabIndex = 157;
+            this.mcp_disengage.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 229);
-            this.Controls.Add(this.btn_mcp_disengage);
+            this.Controls.Add(this.mcp_disengage);
+            this.Controls.Add(this.btn_mcp_bank_30);
+            this.Controls.Add(this.btn_mcp_bank_20);
+            this.Controls.Add(this.btn_mcp_bank_25);
+            this.Controls.Add(this.mcp_hdgsel);
+            this.Controls.Add(this.btn_mcp_hdgsel);
+            this.Controls.Add(this.mcp_vorloc);
+            this.Controls.Add(this.mcp_vs_on);
+            this.Controls.Add(this.mcp_althld);
+            this.Controls.Add(this.mcp_app);
+            this.Controls.Add(this.mcp_lnav);
+            this.Controls.Add(this.mcp_vnav);
+            this.Controls.Add(this.mcp_lvlchg);
+            this.Controls.Add(this.mcp_speed);
+            this.Controls.Add(this.mcp_n1);
             this.Controls.Add(this.mcp_cws_b);
-            this.Controls.Add(this.btn_mcp_cws_b);
-            this.Controls.Add(this.mcp_cws_a);
-            this.Controls.Add(this.btn_mcp_cws_a);
             this.Controls.Add(this.mcp_cmd_b);
+            this.Controls.Add(this.mcp_cws_a);
+            this.Controls.Add(this.mcp_cmd_a);
+            this.Controls.Add(this.mcp_fd);
+            this.Controls.Add(this.mcp_at);
+            this.Controls.Add(this.efis_tfc);
+            this.Controls.Add(this.efis_ctr);
+            this.Controls.Add(this.efis_terr);
+            this.Controls.Add(this.efis_pos);
+            this.Controls.Add(this.efis_data);
+            this.Controls.Add(this.efis_arpt);
+            this.Controls.Add(this.efis_wpt);
+            this.Controls.Add(this.efis_sta);
+            this.Controls.Add(this.efis_wxr);
+            this.Controls.Add(this.btn_mcp_disengage);
+            this.Controls.Add(this.btn_mcp_cws_b);
+            this.Controls.Add(this.btn_mcp_cws_a);
             this.Controls.Add(this.btn_mcp_cmd_b);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -1147,8 +1376,8 @@
             this.Controls.Add(this.btn_mcp_althld);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.mcp_altitude);
-            this.Controls.Add(this.btn_mcp_bank_dec);
-            this.Controls.Add(this.btn_mcp_bank_inc);
+            this.Controls.Add(this.btn_mcp_bank_10);
+            this.Controls.Add(this.btn_mcp_bank_15);
             this.Controls.Add(this.btn_mcp_app);
             this.Controls.Add(this.btn_mcp_vorloc);
             this.Controls.Add(this.btn_mcp_lnav);
@@ -1168,20 +1397,16 @@
             this.Controls.Add(this.mcp_spd);
             this.Controls.Add(this.btn_mcp_fd_off);
             this.Controls.Add(this.btn_mcp_fd_on);
-            this.Controls.Add(this.mcp_fd);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_mcp_at_off);
             this.Controls.Add(this.btn_mcp_at_on);
-            this.Controls.Add(this.mcp_at);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_mcp_crs_l_dec);
             this.Controls.Add(this.btn_mcp_crs_r_inc);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.mcp_crs_l);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.efis_tfc);
-            this.Controls.Add(this.efis_ctr);
             this.Controls.Add(this.btn_efis_baro_dec);
             this.Controls.Add(this.btn_efis_baro_inc);
             this.Controls.Add(this.btn_efis_baro_std);
@@ -1211,13 +1436,6 @@
             this.Controls.Add(this.efis_mins_baro);
             this.Controls.Add(this.efis_mins_radio);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.efis_sta);
-            this.Controls.Add(this.efis_wpt);
-            this.Controls.Add(this.efis_pos);
-            this.Controls.Add(this.efis_data);
-            this.Controls.Add(this.efis_arpt);
-            this.Controls.Add(this.efis_terr);
-            this.Controls.Add(this.efis_wxr);
             this.Controls.Add(this.btn_efis_sta);
             this.Controls.Add(this.btn_efis_wpt);
             this.Controls.Add(this.btn_efis_pos);
@@ -1225,7 +1443,6 @@
             this.Controls.Add(this.btn_efis_arpt);
             this.Controls.Add(this.btn_efis_terr);
             this.Controls.Add(this.btn_efis_wxr);
-            this.Controls.Add(this.mcp_cmd_a);
             this.Controls.Add(this.btn_mcp_cmd_a);
             this.Controls.Add(this.btn_efis_range_160);
             this.Controls.Add(this.btn_efis_range_320);
@@ -1241,7 +1458,6 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton mcp_cmd_a;
         private System.Windows.Forms.Button btn_mcp_cmd_a;
         private System.Windows.Forms.Button btn_efis_wxr;
         private System.Windows.Forms.Button btn_efis_terr;
@@ -1250,13 +1466,6 @@
         private System.Windows.Forms.Button btn_efis_pos;
         private System.Windows.Forms.Button btn_efis_wpt;
         private System.Windows.Forms.Button btn_efis_sta;
-        private System.Windows.Forms.RadioButton efis_wxr;
-        private System.Windows.Forms.RadioButton efis_terr;
-        private System.Windows.Forms.RadioButton efis_data;
-        private System.Windows.Forms.RadioButton efis_arpt;
-        private System.Windows.Forms.RadioButton efis_sta;
-        private System.Windows.Forms.RadioButton efis_wpt;
-        private System.Windows.Forms.RadioButton efis_pos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button efis_mins_radio;
         private System.Windows.Forms.Button efis_mins_baro;
@@ -1289,20 +1498,16 @@
         private System.Windows.Forms.Button btn_efis_baro_hpa;
         private System.Windows.Forms.Button btn_efis_baro_in;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton efis_ctr;
-        private System.Windows.Forms.RadioButton efis_tfc;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox mcp_crs_l;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_mcp_crs_l_dec;
         private System.Windows.Forms.Button btn_mcp_crs_r_inc;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton mcp_at;
         private System.Windows.Forms.Button btn_mcp_at_off;
         private System.Windows.Forms.Button btn_mcp_at_on;
         private System.Windows.Forms.Button btn_mcp_fd_off;
         private System.Windows.Forms.Button btn_mcp_fd_on;
-        private System.Windows.Forms.RadioButton mcp_fd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_mcp_spd_dec;
@@ -1322,8 +1527,8 @@
         private System.Windows.Forms.Button btn_mcp_lnav;
         private System.Windows.Forms.Button btn_mcp_vorloc;
         private System.Windows.Forms.Button btn_mcp_app;
-        private System.Windows.Forms.Button btn_mcp_bank_dec;
-        private System.Windows.Forms.Button btn_mcp_bank_inc;
+        private System.Windows.Forms.Button btn_mcp_bank_10;
+        private System.Windows.Forms.Button btn_mcp_bank_15;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox mcp_altitude;
         private System.Windows.Forms.Button btn_mcp_althld;
@@ -1338,13 +1543,40 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.RadioButton mcp_cmd_b;
         private System.Windows.Forms.Button btn_mcp_cmd_b;
-        private System.Windows.Forms.RadioButton mcp_cws_b;
         private System.Windows.Forms.Button btn_mcp_cws_b;
-        private System.Windows.Forms.RadioButton mcp_cws_a;
         private System.Windows.Forms.Button btn_mcp_cws_a;
         private System.Windows.Forms.Button btn_mcp_disengage;
+        private System.Windows.Forms.CheckBox efis_wxr;
+        private System.Windows.Forms.CheckBox efis_sta;
+        private System.Windows.Forms.CheckBox efis_arpt;
+        private System.Windows.Forms.CheckBox efis_wpt;
+        private System.Windows.Forms.CheckBox efis_terr;
+        private System.Windows.Forms.CheckBox efis_pos;
+        private System.Windows.Forms.CheckBox efis_data;
+        private System.Windows.Forms.CheckBox efis_ctr;
+        private System.Windows.Forms.CheckBox efis_tfc;
+        private System.Windows.Forms.CheckBox mcp_at;
+        private System.Windows.Forms.CheckBox mcp_fd;
+        private System.Windows.Forms.CheckBox mcp_cmd_a;
+        private System.Windows.Forms.CheckBox mcp_cws_a;
+        private System.Windows.Forms.CheckBox mcp_cws_b;
+        private System.Windows.Forms.CheckBox mcp_cmd_b;
+        private System.Windows.Forms.CheckBox mcp_n1;
+        private System.Windows.Forms.CheckBox mcp_speed;
+        private System.Windows.Forms.CheckBox mcp_lvlchg;
+        private System.Windows.Forms.CheckBox mcp_vnav;
+        private System.Windows.Forms.CheckBox mcp_lnav;
+        private System.Windows.Forms.CheckBox mcp_app;
+        private System.Windows.Forms.CheckBox mcp_vs_on;
+        private System.Windows.Forms.CheckBox mcp_althld;
+        private System.Windows.Forms.CheckBox mcp_vorloc;
+        private System.Windows.Forms.CheckBox mcp_hdgsel;
+        private System.Windows.Forms.Button btn_mcp_hdgsel;
+        private System.Windows.Forms.Button btn_mcp_bank_20;
+        private System.Windows.Forms.Button btn_mcp_bank_25;
+        private System.Windows.Forms.Button btn_mcp_bank_30;
+        private System.Windows.Forms.CheckBox mcp_disengage;
     }
 }
 

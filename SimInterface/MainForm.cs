@@ -108,7 +108,35 @@ namespace SimInterface
             this.Invoke((MethodInvoker)delegate {
                 pmdgData = NativeMethod.GetPMDGData();
 
+                mcp_crs_l.Text = Convert.ToString(pmdgData.MCP_Course[0]);
+                if (pmdgData.MCP_IASBlank == 1)
+                    mcp_spd.Text = "";
+                else
+                    mcp_spd.Text = Convert.ToString(pmdgData.MCP_IASMach);
+                mcp_heading.Text = Convert.ToString(pmdgData.MCP_Heading);
+                mcp_altitude.Text = Convert.ToString(pmdgData.MCP_Altitude);
+                if (pmdgData.MCP_VertSpeedBlank == 1)
+                    mcp_vs.Text = "";
+                else
+                    mcp_vs.Text = Convert.ToString(pmdgData.MCP_VertSpeed);
+
                 mcp_cmd_a.Checked = (pmdgData.MCP_annunCMD_A == 1 ? true : false);
+                mcp_cmd_b.Checked = (pmdgData.MCP_annunCMD_B == 1 ? true : false);
+                mcp_cws_a.Checked = (pmdgData.MCP_annunCWS_A == 1 ? true : false);
+                mcp_cws_b.Checked = (pmdgData.MCP_annunCWS_B == 1 ? true : false);
+                mcp_fd.Checked = (pmdgData.MCP_FDSw[0] == 1 ? true : false);
+                mcp_at.Checked = (pmdgData.MCP_ATArmSw == 1 ? true : false);
+                mcp_n1.Checked = (pmdgData.MCP_annunN1 == 1 ? true : false);
+                mcp_speed.Checked = (pmdgData.MCP_annunSPEED == 1 ? true : false);
+                mcp_vnav.Checked = (pmdgData.MCP_annunVNAV == 1 ? true : false);
+                mcp_lvlchg.Checked = (pmdgData.MCP_annunLVL_CHG == 1 ? true : false);
+                mcp_hdgsel.Checked = (pmdgData.MCP_annunHDG_SEL == 1 ? true : false);
+                mcp_lnav.Checked = (pmdgData.MCP_annunLNAV == 1 ? true : false);
+                mcp_vorloc.Checked = (pmdgData.MCP_annunVOR_LOC == 1 ? true : false);
+                mcp_app.Checked = (pmdgData.MCP_annunAPP == 1 ? true : false);
+                mcp_althld.Checked = (pmdgData.MCP_annunALT_HOLD == 1 ? true : false);
+                mcp_vs_on.Checked = (pmdgData.MCP_annunVS == 1 ? true : false);
+                mcp_disengage.Checked = (pmdgData.MCP_DisengageBar == 1 ? true : false);
             });
         }
 
@@ -243,10 +271,10 @@ namespace SimInterface
             }
         }
 
-        private void toggleManagedPMDGControl(SDK.PMDGEvents pmdgEvent, RadioButton indicator)
+        private void toggleManagedPMDGControl(SDK.PMDGEvents pmdgEvent, CheckBox indicator)
         {
-            NativeMethod.RaisePMDGEvent(pmdgEvent, (indicator.Checked ? 0 : 1));
             indicator.Checked = !indicator.Checked;
+            NativeMethod.RaisePMDGEvent(pmdgEvent, (indicator.Checked ? 1 : 0));
         }
 
         private void setManagedPMDGControl(SDK.PMDGEvents pmdgEvent, int data)
@@ -254,10 +282,10 @@ namespace SimInterface
             NativeMethod.RaisePMDGEvent(pmdgEvent, data);
         }
 
-        private void togglePMDGControl(SDK.PMDGEvents pmdgEvent, int data, RadioButton indicator)
+        private void togglePMDGControl(SDK.PMDGEvents pmdgEvent, int data, CheckBox indicator)
         {
             data = ~data;
-            NativeMethod.RaisePMDGEvent(SDK.PMDGEvents.EVT_MCP_CMD_A_SWITCH, data);
+            NativeMethod.RaisePMDGEvent(pmdgEvent, data);
             indicator.Checked = (data == 1 ? true : false);
         }
         
@@ -265,6 +293,11 @@ namespace SimInterface
         {
             //simconnect.TransmitClientEvent(SimConnect.SIMCONNECT_OBJECT_ID_USER, EVENTS.AP_MASTER, 1, NOTIFICATION_GROUPS.GROUP0, SIMCONNECT_EVENT_FLAG.DEFAULT); //Native FSX. Doesn't work with PMDG.
             togglePMDGControl(SDK.PMDGEvents.EVT_MCP_CMD_A_SWITCH, pmdgData.MCP_annunCMD_A, mcp_cmd_a);
+        }
+
+        private void btn_mcp_cmd_b_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_CMD_B_SWITCH, pmdgData.MCP_annunCMD_B, mcp_cmd_b);
         }
 
         private void btn_efis_wxr_Click(object sender, EventArgs e)
@@ -452,6 +485,181 @@ namespace SimInterface
         private void btn_efis_baro_inc_Click(object sender, EventArgs e)
         {
             setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_BARO, int.MinValue);
+        }
+
+        private void btn_mcp_crs_l_dec_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_COURSE_SELECTOR_L, 10000);
+        }
+
+        private void btn_mcp_crs_r_inc_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_COURSE_SELECTOR_L, int.MinValue);
+        }
+
+        private void btn_mcp_fd_on_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_FD_SWITCH_L, 0);
+        }
+
+        private void btn_mcp_fd_off_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_FD_SWITCH_L, 1);
+        }
+
+        private void btn_mcp_at_on_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_AT_ARM_SWITCH, 0);
+        }
+
+        private void btn_mcp_at_off_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_AT_ARM_SWITCH, 1);
+        }
+
+        private void btn_mcp_spd_co_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_CO_SWITCH, 1);
+        }
+
+        private void btn_mcp_spd_spdintv_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_SPD_INTV_SWITCH, 1);
+        }
+
+        private void btn_mcp_spd_dec_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_SPEED_SELECTOR, 10000);
+        }
+
+        private void btn_mcp_spd_inc_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_SPEED_SELECTOR, int.MinValue);
+        }
+
+        private void btn_mcp_heading_dec_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_HEADING_SELECTOR, 10000);
+        }
+
+        private void btn_mcp_heading_inc_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_HEADING_SELECTOR, int.MinValue);
+        }
+
+        private void btn_mcp_altitude_dec_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_ALTITUDE_SELECTOR, 10000);
+        }
+
+        private void btn_mcp_altitude_inc_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_ALTITUDE_SELECTOR, int.MinValue);
+        }
+
+        private void btn_mcp_vs_up_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_VS_SELECTOR, 10000);
+        }
+
+        private void btn_mcp_vs_dn_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_VS_SELECTOR, int.MinValue);
+        }
+
+        private void btn_mcp_altintv_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_ALT_INTV_SWITCH, 1);
+        }
+
+        private void btn_mcp_bank_30_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_BANK_ANGLE_SELECTOR, 4);
+        }
+
+        private void btn_mcp_bank_20_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_BANK_ANGLE_SELECTOR, 2);
+        }
+
+        private void btn_mcp_bank_25_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_BANK_ANGLE_SELECTOR, 3);
+        }
+
+        private void btn_mcp_bank_10_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_BANK_ANGLE_SELECTOR, 0);
+        }
+
+        private void btn_mcp_bank_15_Click(object sender, EventArgs e)
+        {
+            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_BANK_ANGLE_SELECTOR, 1);
+        }
+
+        private void btn_mcp_hdgsel_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_HDG_SEL_SWITCH, pmdgData.MCP_annunHDG_SEL, mcp_hdgsel);
+        }
+
+        private void btn_mcp_vs_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_VS_SWITCH, pmdgData.MCP_annunVS, mcp_vs_on);
+        }
+
+        private void btn_mcp_althld_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_ALT_HOLD_SWITCH, pmdgData.MCP_annunALT_HOLD, mcp_althld);
+        }
+
+        private void btn_mcp_app_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_APP_SWITCH, pmdgData.MCP_annunAPP, mcp_app);
+        }
+
+        private void btn_mcp_lvlchg_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_LVL_CHG_SWITCH, pmdgData.MCP_annunLVL_CHG, mcp_lvlchg);
+        }
+
+        private void btn_mcp_speed_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_SPEED_SWITCH, pmdgData.MCP_annunSPEED, mcp_speed);
+        }
+
+        private void btn_mcp_n1_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_N1_SWITCH, pmdgData.MCP_annunN1, mcp_n1);
+        }
+
+        private void btn_mcp_vorloc_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_VOR_LOC_SWITCH, pmdgData.MCP_annunVOR_LOC, mcp_vorloc);
+        }
+
+        private void btn_mcp_lnav_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_LNAV_SWITCH, pmdgData.MCP_annunLNAV, mcp_lnav);
+        }
+
+        private void btn_mcp_vnav_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_VNAV_SWITCH, pmdgData.MCP_annunVNAV, mcp_vnav);
+        }
+
+        private void btn_mcp_disengage_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_DISENGAGE_BAR, pmdgData.MCP_DisengageBar, mcp_disengage);
+        }
+
+        private void btn_mcp_cws_a_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_CWS_A_SWITCH, pmdgData.MCP_annunCWS_A, mcp_cws_a);
+        }
+
+        private void btn_mcp_cws_b_Click(object sender, EventArgs e)
+        {
+            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_CWS_B_SWITCH, pmdgData.MCP_annunCWS_B, mcp_cws_b);
         }
     }
 }
