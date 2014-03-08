@@ -1,6 +1,0 @@
-LIBRARY   PMDGWrapper
-EXPORTS
-   SetACLoadedCallback			@1
-   GetPMDGDataStructureLength	@2
-   GetPMDGData					@3
-   RaisePMDGEvent				@4
