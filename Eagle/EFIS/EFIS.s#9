@@ -8142,6 +8142,20 @@ Source: AVX .. aphvc.pdf</description>
 <label x="119.38" y="114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
+<net name="MINSRST" class="0">
+<segment>
+<pinref part="T1" gate="G$1" pin="10"/>
+<wire x1="121.92" y1="116.84" x2="121.92" y2="114.3" width="0.1524" layer="91"/>
+<label x="121.92" y="114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
+</net>
+<net name="BAROSTD" class="0">
+<segment>
+<pinref part="T1" gate="G$1" pin="11"/>
+<wire x1="124.46" y1="116.84" x2="124.46" y2="114.3" width="0.1524" layer="91"/>
+<label x="124.46" y="114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>

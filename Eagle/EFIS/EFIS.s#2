@@ -8126,8 +8126,8 @@ Source: AVX .. aphvc.pdf</description>
 </net>
 <net name="MINSA" class="0">
 <segment>
-<wire x1="38.1" y1="86.36" x2="38.1" y2="83.82" width="0.1524" layer="91"/>
-<label x="38.1" y="83.82" size="1.016" layer="95" rot="R270" xref="yes"/>
+<wire x1="38.1" y1="88.9" x2="38.1" y2="86.36" width="0.1524" layer="91"/>
+<label x="38.1" y="86.36" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
 <pinref part="T1" gate="G$1" pin="6"/>

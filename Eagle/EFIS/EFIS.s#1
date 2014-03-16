@@ -7371,8 +7371,8 @@ Source: AVX .. aphvc.pdf</description>
 <part name="TERR" library="switch-omron" deviceset="10-XX" device=""/>
 <part name="MODE" library="switch" deviceset="CK101X12" device=""/>
 <part name="RANGE" library="switch" deviceset="CK101X12" device=""/>
-<part name="MINS" library="encoder" deviceset="MERP12246GR" device=""/>
 <part name="BARO" library="encoder" deviceset="MERP12246GR" device=""/>
+<part name="MINS" library="encoder" deviceset="MERP12246GR" device=""/>
 <part name="VOR1" library="switch-custom" deviceset="320-916" device=""/>
 <part name="VOR2" library="switch-custom" deviceset="320-916" device=""/>
 <part name="R1" library="resistor" deviceset="R-EU_" device="R1206" value="10K"/>
@@ -7438,8 +7438,8 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="TERR" gate="1" x="208.28" y="12.7"/>
 <instance part="MODE" gate="1" x="88.9" y="53.34" rot="R90"/>
 <instance part="RANGE" gate="1" x="127" y="53.34" rot="R90"/>
-<instance part="MINS" gate="G$1" x="40.64" y="99.06"/>
-<instance part="BARO" gate="G$1" x="187.96" y="99.06"/>
+<instance part="BARO" gate="G$1" x="190.5" y="101.6"/>
+<instance part="MINS" gate="G$1" x="43.18" y="99.06"/>
 <instance part="VOR1" gate="1" x="20.32" y="48.26" rot="R270"/>
 <instance part="VOR2" gate="1" x="182.88" y="48.26" rot="R270"/>
 <instance part="R1" gate="G$1" x="17.78" y="20.32" rot="R180"/>
@@ -7687,25 +7687,29 @@ Source: AVX .. aphvc.pdf</description>
 <label x="139.7" y="71.12" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<wire x1="40.64" y1="86.36" x2="40.64" y2="83.82" width="0.1524" layer="91"/>
-<label x="40.64" y="83.82" size="1.016" layer="95" rot="R270" xref="yes"/>
+<label x="43.18" y="86.36" size="1.016" layer="95" rot="R270" xref="yes"/>
+<pinref part="MINS" gate="G$1" pin="C"/>
+<wire x1="43.18" y1="88.9" x2="43.18" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="187.96" y1="86.36" x2="187.96" y2="83.82" width="0.1524" layer="91"/>
-<label x="187.96" y="83.82" size="1.016" layer="95" rot="R270" xref="yes"/>
+<label x="190.5" y="88.9" size="1.016" layer="95" rot="R270" xref="yes"/>
+<pinref part="BARO" gate="G$1" pin="C"/>
+<wire x1="190.5" y1="91.44" x2="190.5" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="193.04" y1="111.76" x2="193.04" y2="114.3" width="0.1524" layer="91"/>
-<label x="193.04" y="114.3" size="1.016" layer="95" rot="R90" xref="yes"/>
-</segment>
-<segment>
-<wire x1="45.72" y1="109.22" x2="45.72" y2="114.3" width="0.1524" layer="91"/>
-<label x="45.72" y="114.3" size="1.016" layer="95" rot="R90" xref="yes"/>
+<label x="195.58" y="114.3" size="1.016" layer="95" rot="R90" xref="yes"/>
+<pinref part="BARO" gate="G$1" pin="1"/>
+<wire x1="195.58" y1="114.3" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="T1" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="116.84" x2="101.6" y2="114.3" width="0.1524" layer="91"/>
 <label x="101.6" y="114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="MINS" gate="G$1" pin="1"/>
+<wire x1="48.26" y1="109.22" x2="48.26" y2="111.76" width="0.1524" layer="91"/>
+<label x="48.26" y="111.76" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -8126,19 +8130,21 @@ Source: AVX .. aphvc.pdf</description>
 </net>
 <net name="MINSA" class="0">
 <segment>
-<wire x1="38.1" y1="88.9" x2="38.1" y2="86.36" width="0.1524" layer="91"/>
-<label x="38.1" y="86.36" size="1.016" layer="95" rot="R270" xref="yes"/>
-</segment>
-<segment>
 <pinref part="T1" gate="G$1" pin="6"/>
 <wire x1="111.76" y1="116.84" x2="111.76" y2="114.3" width="0.1524" layer="91"/>
 <label x="111.76" y="114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
+<segment>
+<label x="40.64" y="86.36" size="1.016" layer="95" rot="R270" xref="yes"/>
+<pinref part="MINS" gate="G$1" pin="A"/>
+<wire x1="40.64" y1="88.9" x2="40.64" y2="86.36" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="MINSB" class="0">
 <segment>
-<wire x1="43.18" y1="86.36" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
-<label x="43.18" y="83.82" size="1.016" layer="95" rot="R270" xref="yes"/>
+<label x="45.72" y="86.36" size="1.016" layer="95" rot="R270" xref="yes"/>
+<pinref part="MINS" gate="G$1" pin="B"/>
+<wire x1="45.72" y1="88.9" x2="45.72" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="T1" gate="G$1" pin="7"/>
@@ -8153,8 +8159,9 @@ Source: AVX .. aphvc.pdf</description>
 <label x="116.84" y="114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<wire x1="185.42" y1="86.36" x2="185.42" y2="83.82" width="0.1524" layer="91"/>
-<label x="185.42" y="83.82" size="1.016" layer="95" rot="R270" xref="yes"/>
+<label x="187.96" y="88.9" size="1.016" layer="95" rot="R270" xref="yes"/>
+<pinref part="BARO" gate="G$1" pin="A"/>
+<wire x1="187.96" y1="91.44" x2="187.96" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="BAROB" class="0">
@@ -8164,8 +8171,9 @@ Source: AVX .. aphvc.pdf</description>
 <label x="119.38" y="114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<wire x1="190.5" y1="86.36" x2="190.5" y2="83.82" width="0.1524" layer="91"/>
-<label x="190.5" y="83.82" size="1.016" layer="95" rot="R270" xref="yes"/>
+<label x="193.04" y="88.9" size="1.016" layer="95" rot="R270" xref="yes"/>
+<pinref part="BARO" gate="G$1" pin="B"/>
+<wire x1="193.04" y1="88.9" x2="193.04" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MINSRST" class="0">
@@ -8175,8 +8183,9 @@ Source: AVX .. aphvc.pdf</description>
 <label x="121.92" y="114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<wire x1="38.1" y1="111.76" x2="38.1" y2="114.3" width="0.1524" layer="91"/>
-<label x="38.1" y="114.3" size="1.016" layer="95" rot="R90" xref="yes"/>
+<pinref part="MINS" gate="G$1" pin="4"/>
+<wire x1="40.64" y1="109.22" x2="40.64" y2="111.76" width="0.1524" layer="91"/>
+<label x="40.64" y="111.76" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="BAROSTD" class="0">
@@ -8186,8 +8195,9 @@ Source: AVX .. aphvc.pdf</description>
 <label x="124.46" y="114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<wire x1="185.42" y1="111.76" x2="185.42" y2="114.3" width="0.1524" layer="91"/>
-<label x="185.42" y="114.3" size="1.016" layer="95" rot="R90" xref="yes"/>
+<label x="187.96" y="114.3" size="1.016" layer="95" rot="R90" xref="yes"/>
+<pinref part="BARO" gate="G$1" pin="4"/>
+<wire x1="187.96" y1="114.3" x2="187.96" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LED1" class="0">
@@ -8197,8 +8207,9 @@ Source: AVX .. aphvc.pdf</description>
 <label x="132.08" y="114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<wire x1="43.18" y1="111.76" x2="43.18" y2="114.3" width="0.1524" layer="91"/>
-<label x="43.18" y="114.3" size="1.016" layer="95" rot="R90" xref="yes"/>
+<pinref part="MINS" gate="G$1" pin="2"/>
+<wire x1="45.72" y1="109.22" x2="45.72" y2="111.76" width="0.1524" layer="91"/>
+<label x="45.72" y="111.76" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 </nets>

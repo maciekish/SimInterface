@@ -841,13 +841,13 @@ C&amp;K</description>
 <wire x1="5.08" y1="5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
 <wire x1="5.08" y1="-5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
 <wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
-<pin name="A" x="-2.54" y="-7.62" length="middle" rot="R270"/>
-<pin name="B" x="2.54" y="-7.62" length="middle" rot="R270"/>
-<pin name="C" x="0" y="-7.62" length="middle" rot="R270"/>
-<pin name="4" x="-2.54" y="7.62" length="middle" rot="R90"/>
-<pin name="3" x="0" y="7.62" length="middle" rot="R90"/>
-<pin name="2" x="2.54" y="7.62" length="middle" rot="R90"/>
-<pin name="1" x="5.08" y="7.62" length="middle" rot="R90"/>
+<pin name="A" x="-2.54" y="-10.16" length="middle" rot="R90"/>
+<pin name="B" x="2.54" y="-10.16" length="middle" rot="R90"/>
+<pin name="C" x="0" y="-10.16" length="middle" rot="R90"/>
+<pin name="4" x="-2.54" y="10.16" length="middle" rot="R270"/>
+<pin name="3" x="0" y="10.16" length="middle" rot="R270"/>
+<pin name="2" x="2.54" y="10.16" length="middle" rot="R270"/>
+<pin name="1" x="5.08" y="10.16" length="middle" rot="R270"/>
 <text x="-5.08" y="-5.08" size="1.778" layer="95" rot="R90">&gt;NAME</text>
 </symbol>
 </symbols>
@@ -7699,7 +7699,7 @@ Source: AVX .. aphvc.pdf</description>
 <label x="193.04" y="114.3" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<wire x1="45.72" y1="111.76" x2="45.72" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="109.22" x2="45.72" y2="114.3" width="0.1524" layer="91"/>
 <label x="45.72" y="114.3" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
