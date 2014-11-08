@@ -323,6 +323,7 @@ namespace SimInterface
             {
                 string[] commandParts = command.Split(':');
                 int button = Convert.ToInt32(commandParts[1]);
+                int setting;
                 
                 if (commandParts[0].Equals("EFIS.L"))
                 {
@@ -372,6 +373,14 @@ namespace SimInterface
                             break;
                         case 11:
                             toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_TERR, efis_terr);
+                            break;
+                        case 14:
+                            setting = Convert.ToInt32(commandParts[2]);
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MODE, setting);
+                            break;
+                        case 15:
+                            setting = Convert.ToInt32(commandParts[2]);
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_RANGE, setting);
                             break;
                         case 16:
                             setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_BARO_STD, int.MaxValue);

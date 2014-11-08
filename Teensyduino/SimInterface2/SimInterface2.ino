@@ -1,6 +1,11 @@
 //Put usb_desc.h in arduino\hardware\teensy\cores\teensy3
 //#define USB_RAWHID
 
+#define MODE 1
+#define RANGE 0
+int mode_pos = 0;
+int range_pos = 0;
+
 #include <Bounce2.h>
 
 // Settings
@@ -24,8 +29,6 @@ Bounce button9 = Bounce();
 Bounce button10 = Bounce();
 Bounce button11 = Bounce();
 Bounce button13 = Bounce();
-Bounce button14 = Bounce();
-Bounce button15 = Bounce();
 Bounce button16 = Bounce();
 Bounce button17 = Bounce();
 Bounce button22 = Bounce();
@@ -57,6 +60,7 @@ void loop() {
   updateButtons();
 
   checkButtons();
+  updatePositions();
   
   processCommands();
 }
@@ -106,6 +110,23 @@ void buttonPressed(int buttonIndex) {
   
   message.getBytes(buffer, 64);
   RawHID.send(buffer, 100);
+  memset(buffer,0,sizeof(buffer));
+  
+  blink();
+}
+
+void positionChanged(int switchIndex, int newPosition) {
+  String message = PANEL;
+  message = message + ":";
+  message = message + switchIndex;
+  message = message + ":";
+  message = message + newPosition;
+  
+  Serial.println(message);
+  
+  message.getBytes(buffer, 64);
+  RawHID.send(buffer, 100);
+  memset(buffer,0,sizeof(buffer));
   
   blink();
 }
@@ -139,10 +160,6 @@ void attachButtons() {
   button10.interval(ms);
   button11.attach(11);
   button11.interval(ms);
-  button14.attach(14);
-  button14.interval(ms);
-  button15.attach(15);
-  button15.interval(ms);
   button16.attach(16);
   button16.interval(ms);
   button17.attach(17);
@@ -165,12 +182,45 @@ void updateButtons() {
   button9.update();
   button10.update();
   button11.update();
-  button14.update();
-  button15.update();
   button16.update();
   button17.update();
   button22.update();
   button23.update();
+}
+
+void updatePositions() {
+  int mode_val = analogRead(MODE);
+  int range_val = analogRead(RANGE);
+  
+  //Mode
+  if (mode_val > 500) { //Check for valid value
+    int new_mode_pos = 3;
+    if (mode_val > 960 && mode_val < 980) new_mode_pos = 0;
+    if (mode_val > 900 && mode_val < 930) new_mode_pos = 1;
+    if (mode_val > 870 && mode_val < 890) new_mode_pos = 2;
+    
+    if (mode_pos != new_mode_pos) {
+      mode_pos = new_mode_pos;
+      positionChanged(14, mode_pos);
+    }
+  }
+  
+  //Range
+  if (range_val > 500) { //Check for valid value
+    int new_range_pos = 7;
+    if (range_val > 960 && range_val <= 980) new_range_pos = 0;
+    if (range_val > 900 && range_val <= 960) new_range_pos = 1;
+    if (range_val > 870 && range_val <= 900) new_range_pos = 2;
+    if (range_val > 840 && range_val <= 870) new_range_pos = 3;
+    if (range_val > 820 && range_val <= 840) new_range_pos = 4;
+    if (range_val > 790 && range_val <= 820) new_range_pos = 5;
+    if (range_val > 760 && range_val <= 790) new_range_pos = 6;
+    
+    if (range_pos != new_range_pos) {
+      range_pos = new_range_pos;
+      positionChanged(15, range_pos);
+    }
+  }
 }
 
 void checkButtons() {
@@ -185,8 +235,6 @@ void checkButtons() {
   if (button9.rose()) { buttonPressed(9); }
   if (button10.rose()) { buttonPressed(10); }
   if (button11.rose()) { buttonPressed(11); }
-  if (button14.rose()) { buttonPressed(14); }
-  if (button15.rose()) { buttonPressed(15); }
   if (button16.fell()) { buttonPressed(16); }
   if (button17.rose()) { buttonPressed(17); }
   if (button22.rose()) { buttonPressed(22); }
