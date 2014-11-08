@@ -147,6 +147,10 @@
             this.btn_mcp_bank_25 = new System.Windows.Forms.Button();
             this.btn_mcp_bank_30 = new System.Windows.Forms.Button();
             this.mcp_disengage = new System.Windows.Forms.CheckBox();
+            this.efis_fpv = new System.Windows.Forms.CheckBox();
+            this.btn_efis_fpv = new System.Windows.Forms.Button();
+            this.efis_mtrs = new System.Windows.Forms.CheckBox();
+            this.btn_efis_mtrs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_mcp_cmd_a
@@ -1323,11 +1327,53 @@
             this.mcp_disengage.TabIndex = 157;
             this.mcp_disengage.UseVisualStyleBackColor = true;
             // 
+            // efis_fpv
+            // 
+            this.efis_fpv.AutoSize = true;
+            this.efis_fpv.Enabled = false;
+            this.efis_fpv.Location = new System.Drawing.Point(165, 41);
+            this.efis_fpv.Name = "efis_fpv";
+            this.efis_fpv.Size = new System.Drawing.Size(15, 14);
+            this.efis_fpv.TabIndex = 159;
+            this.efis_fpv.UseVisualStyleBackColor = true;
+            // 
+            // btn_efis_fpv
+            // 
+            this.btn_efis_fpv.Location = new System.Drawing.Point(152, 15);
+            this.btn_efis_fpv.Name = "btn_efis_fpv";
+            this.btn_efis_fpv.Size = new System.Drawing.Size(39, 39);
+            this.btn_efis_fpv.TabIndex = 158;
+            this.btn_efis_fpv.Text = "FPV";
+            this.btn_efis_fpv.UseVisualStyleBackColor = true;
+            // 
+            // efis_mtrs
+            // 
+            this.efis_mtrs.AutoSize = true;
+            this.efis_mtrs.Enabled = false;
+            this.efis_mtrs.Location = new System.Drawing.Point(215, 41);
+            this.efis_mtrs.Name = "efis_mtrs";
+            this.efis_mtrs.Size = new System.Drawing.Size(15, 14);
+            this.efis_mtrs.TabIndex = 161;
+            this.efis_mtrs.UseVisualStyleBackColor = true;
+            // 
+            // btn_efis_mtrs
+            // 
+            this.btn_efis_mtrs.Location = new System.Drawing.Point(197, 15);
+            this.btn_efis_mtrs.Name = "btn_efis_mtrs";
+            this.btn_efis_mtrs.Size = new System.Drawing.Size(51, 39);
+            this.btn_efis_mtrs.TabIndex = 160;
+            this.btn_efis_mtrs.Text = "MTRS";
+            this.btn_efis_mtrs.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 229);
+            this.Controls.Add(this.efis_mtrs);
+            this.Controls.Add(this.btn_efis_mtrs);
+            this.Controls.Add(this.efis_fpv);
+            this.Controls.Add(this.btn_efis_fpv);
             this.Controls.Add(this.mcp_disengage);
             this.Controls.Add(this.btn_mcp_bank_30);
             this.Controls.Add(this.btn_mcp_bank_20);
@@ -1577,6 +1623,10 @@
         private System.Windows.Forms.Button btn_mcp_bank_25;
         private System.Windows.Forms.Button btn_mcp_bank_30;
         private System.Windows.Forms.CheckBox mcp_disengage;
+        private System.Windows.Forms.CheckBox efis_fpv;
+        private System.Windows.Forms.Button btn_efis_fpv;
+        private System.Windows.Forms.CheckBox efis_mtrs;
+        private System.Windows.Forms.Button btn_efis_mtrs;
     }
 }
 

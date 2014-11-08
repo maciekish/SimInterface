@@ -142,9 +142,9 @@ namespace SimInterface
                 mcp_vs_on.Checked = (pmdgData.MCP_annunVS == 1 ? true : false);
                 mcp_disengage.Checked = (pmdgData.MCP_DisengageBar == 1 ? true : false);
 
-                CommandMessage message = new CommandMessage(1);
+                /*CommandMessage message = new CommandMessage(1);
                 message.Parameters = GetBytes((mcp_lvlchg.Checked ? "LVL_CGH_ON" : "LVL_CGH_OFF"));
-                efisDevice.SendMessage(message);
+                efisDevice.SendMessage(message);*/
             });
         }
 
@@ -300,6 +300,10 @@ namespace SimInterface
         private void deviceOnConnected()
         {
             Debug.WriteLine("USB connected");
+
+            CommandMessage message = new CommandMessage(1);
+            message.Parameters = GetBytes("UPDATE");
+            efisDevice.SendMessage(message);
         }
 
         private void deviceDataReceived(byte[] data)
@@ -317,23 +321,83 @@ namespace SimInterface
         {
             this.Invoke((MethodInvoker)delegate
             {
-                switch (command)
+                string[] commandParts = command.Split(':');
+                int button = Convert.ToInt32(commandParts[1]);
+                
+                if (commandParts[0].Equals("EFIS.L"))
                 {
-                    case "LVL_CHG":
-                        togglePMDGControl(SDK.PMDGEvents.EVT_MCP_LVL_CHG_SWITCH, pmdgData.MCP_annunLVL_CHG, mcp_lvlchg);
-                        break;
-                    case "HDG_DEC":
-                        setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_HEADING_SELECTOR, 10000);
-                        break;
-                    case "HDG_INC":
-                        setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_HEADING_SELECTOR, int.MinValue);
-                        break;
-                    case "ALT_DEC":
-                        setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_ALTITUDE_SELECTOR, 10000);
-                        break;
-                    case "ALT_INC":
-                        setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_ALTITUDE_SELECTOR, int.MinValue);
-                        break;
+                    switch (button)
+                    {
+                        case 1:
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_L, 2);
+                            break;
+                        case -1:
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_L, 1); //Off
+                            break;
+                        case 2:
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_L, 0);
+                            break;
+                        case -2:
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_L, 1); //Off
+                            break;
+                        case 3:
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_R, 2);
+                            break;
+                        case -3:
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_R, 1); //Off
+                            break;
+                        case 4:
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_R, 0);
+                            break;
+                        case -4:
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_VOR_ADF_SELECTOR_R, 1); //Off
+                            break;
+                        case 5:
+                            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_WXR, efis_wxr);
+                            break;
+                        case 6:
+                            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_STA, efis_sta);
+                            break;
+                        case 7:
+                            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_WPT, efis_wpt);
+                            break;
+                        case 8:
+                            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_ARPT, efis_arpt);
+                            break;
+                        case 9:
+                            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_DATA, efis_data);
+                            break;
+                        case 10:
+                            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_POS, efis_pos);
+                            break;
+                        case 11:
+                            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_TERR, efis_terr);
+                            break;
+                        case 16:
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_BARO_STD, int.MaxValue);
+                            break;
+                        case 22:
+                            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_MTRS, efis_mtrs);
+                            break;
+                        case 23:
+                            toggleManagedPMDGControl(SDK.PMDGEvents.EVT_EFIS_CPT_FPV, efis_fpv);
+                            break;
+                        /*case 2:
+                            togglePMDGControl(SDK.PMDGEvents.EVT_MCP_LVL_CHG_SWITCH, pmdgData.MCP_annunLVL_CHG, mcp_lvlchg);
+                            break;
+                        case "HDG_DEC":
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_HEADING_SELECTOR, 10000);
+                            break;
+                        case "HDG_INC":
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_HEADING_SELECTOR, int.MinValue);
+                            break;
+                        case "ALT_DEC":
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_ALTITUDE_SELECTOR, 10000);
+                            break;
+                        case "ALT_INC":
+                            setManagedPMDGControl(SDK.PMDGEvents.EVT_MCP_ALTITUDE_SELECTOR, int.MinValue);
+                            break;*/
+                    }
                 }
             });
         }

@@ -30,9 +30,9 @@ namespace UsbHid.USB.Classes
                     ref numberOfBytesWritten,
                     IntPtr.Zero);
 
-                Debug.WriteLine(success
+                /*Debug.WriteLine(success
                                     ? "usbGenericHidCommunication:writeReportToDevice(): -> Write report succeeded"
-                                    : "usbGenericHidCommunication:writeReportToDevice(): -> Write report failed!");
+                                    : "usbGenericHidCommunication:writeReportToDevice(): -> Write report failed!");*/
                 return success;
             }
             catch (Exception)
